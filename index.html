@@ -2,8 +2,14 @@
 <html lang="no">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#25677b">
 <title>Langsom Film</title>
+<meta name="description" content="Langsom Film er et norsk produksjonsselskap for karakterdrevne filmer.">
+<meta property="og:title" content="Langsom Film">
+<meta property="og:description" content="Norsk produksjonsselskap for karakterdrevne filmer som utforsker livets store spørsmål gjennom vanlige mennesker.">
+<meta property="og:image" content="https://0xjensmalm.github.io/langsomfilm/assets/yrkesfag.jpg">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -15,11 +21,11 @@
 :root{color-scheme:dark;--bg:#25677b;--deep:#1d5566;--card:#1f5a6c;--ink:#fff;--soft:#d6e6eb;--yel:#f7e14b;--line:rgba(255,255,255,.35)}
 *{box-sizing:border-box;min-width:0}
 html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font:16px/1.55 Montserrat,system-ui,sans-serif;overflow-x:clip;min-height:100vh;display:flex;flex-direction:column}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 Montserrat,system-ui,sans-serif;overflow-x:clip;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
 button{font:inherit;color:inherit;cursor:pointer}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--yel);outline-offset:3px}
-.wrap{width:min(1240px,100%);margin:0 auto;padding:0 max(4vw,16px)}
+.wrap{width:min(1240px,100%);margin:0 auto;padding:0 max(4vw,16px,env(safe-area-inset-left))}
 
 /* header */
 header{padding:clamp(18px,3vw,36px) 0 clamp(14px,2vw,26px)}
@@ -34,28 +40,34 @@ header{padding:clamp(18px,3vw,36px) 0 clamp(14px,2vw,26px)}
 
 /* carousel */
 main{flex:1;position:relative}
-.car{position:relative}
+.car{position:relative;--iw:clamp(210px,27vw,340px)}
 .track{display:flex;gap:clamp(14px,2vw,26px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:14px max(4vw,16px) 8px;scroll-padding-inline:max(4vw,16px)}
 .track::-webkit-scrollbar{display:none}
 @media(min-width:1240px){.track{padding-inline:calc((100vw - 1240px)/2 + 4vw)}}
-.item{flex:0 0 clamp(210px,27vw,340px);scroll-snap-align:start;margin:0}
+.item{flex:0 0 var(--iw);scroll-snap-align:start;margin:0;display:flex;flex-direction:column;align-items:center}
 .poster{display:block;width:100%;aspect-ratio:436/618;padding:0;border:0;background:#123;border-radius:2px;overflow:hidden;box-shadow:0 18px 40px -18px rgba(0,0,0,.6);transition:transform .35s ease,box-shadow .35s ease}
 .poster img{width:100%;height:100%;object-fit:cover;display:block}
-.poster:hover{transform:translateY(-6px);box-shadow:0 30px 50px -22px rgba(0,0,0,.7)}
+@media(hover:hover){.poster:hover{transform:translateY(-6px);box-shadow:0 30px 50px -22px rgba(0,0,0,.7)}}
+.poster:active{transform:scale(.985)}
 .item.lifted .poster{visibility:hidden}
-.item h2{margin:12px 0 0;font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.01em}
+.item h2{margin:14px 0 0;width:100%;text-align:center;font-size:clamp(15px,1.4vw,17px);line-height:1.25;font-weight:800;text-transform:uppercase;letter-spacing:.03em;text-wrap:balance}
 .arrow{position:absolute;top:calc(50% - 40px);width:48px;height:48px;border-radius:50%;border:2px solid #fff;background:rgba(20,50,60,.55);display:grid;place-items:center;transition:opacity .2s;z-index:2}
 .arrow.prev{left:max(1.5vw,8px)}.arrow.next{right:max(1.5vw,8px)}
 .arrow[hidden]{display:grid;opacity:0;pointer-events:none}
 .arrow svg{width:20px;height:20px}
 .empty{padding:60px 0;text-align:center;color:var(--soft)}
+.dots{display:flex;justify-content:center;gap:2px;margin-top:6px}
+.dots[hidden]{display:none}
+.dots button{width:28px;height:28px;border:0;background:none;padding:0;display:grid;place-items:center}
+.dots button::before{content:"";width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);transition:background .2s,transform .2s}
+.dots button[aria-current="true"]::before{background:var(--yel);transform:scale(1.25)}
 
 /* footer + turtle */
-footer{position:relative;margin-top:clamp(24px,4vw,48px);padding:18px 0 96px;text-align:center}
+footer{position:relative;margin-top:clamp(20px,4vw,48px);padding:18px 0 calc(96px + env(safe-area-inset-bottom));text-align:center}
 .contact{display:inline-flex;align-items:center;gap:18px;font-weight:800;color:var(--yel);font-size:clamp(15px,1.6vw,19px);flex-wrap:wrap;justify-content:center}
 .contact span.sep{width:1px;height:26px;background:var(--line)}
 .contact a{text-decoration:none}.contact a:hover{text-decoration:underline}
-.lane{position:absolute;left:0;right:0;bottom:14px;height:56px;overflow:hidden;pointer-events:none}
+.lane{position:absolute;left:0;right:0;bottom:calc(14px + env(safe-area-inset-bottom));height:56px;overflow:hidden;pointer-events:none}
 .walker{position:absolute;bottom:0;left:0;width:84px;animation:walk 95s linear -28s infinite}
 .walker svg{width:84px;height:auto;display:block;animation:bob 1.4s ease-in-out infinite}
 .leg{transform-box:fill-box;transform-origin:50% 0;animation:step 1.4s ease-in-out infinite}
@@ -76,7 +88,8 @@ footer{position:relative;margin-top:clamp(24px,4vw,48px);padding:18px 0 96px;tex
 .flip.open{transform:none!important}
 .flip.open .front{display:none}
 .flip.open .back{transform:none}
-.x{position:absolute;top:10px;right:10px;width:44px;height:44px;border:0;background:none;display:grid;place-items:center;z-index:2}
+.x{position:sticky;top:10px;float:right;margin:10px 10px -54px 0;width:44px;height:44px;border:0;border-radius:50%;background:rgba(15,43,51,.55);display:grid;place-items:center;z-index:2}
+.x:hover{background:rgba(15,43,51,.85)}
 .x svg{width:24px;height:24px}
 
 .info{padding:clamp(22px,3.4vw,40px) clamp(20px,3.4vw,44px)}
@@ -116,7 +129,7 @@ footer{position:relative;margin-top:clamp(24px,4vw,48px);padding:18px 0 96px;tex
 .tools button{border:1px solid var(--line);background:rgba(0,0,0,.18);border-radius:6px;min-height:40px;min-width:40px;padding:6px 10px;font-size:13px;font-weight:700}
 .tools button:hover{background:rgba(0,0,0,.35)}
 .tools .del.armed{background:#a3262a;border-color:#a3262a}
-.add-tile{flex:0 0 clamp(210px,27vw,340px);aspect-ratio:436/618;border:2px dashed rgba(255,255,255,.55);border-radius:4px;background:rgba(0,0,0,.08);display:grid;place-items:center;align-content:center;gap:8px;font-weight:800;font-size:17px}
+.add-tile{flex:0 0 var(--iw);aspect-ratio:436/618;border:2px dashed rgba(255,255,255,.55);border-radius:4px;background:rgba(0,0,0,.08);display:grid;place-items:center;align-content:center;gap:8px;font-weight:800;font-size:17px}
 .add-tile span{font-size:46px;line-height:1;color:var(--yel)}
 dialog{border:0;padding:0;border-radius:10px;width:min(720px,calc(100vw - 24px));max-height:calc(100vh - 24px);background:#f7f5ef;color:#14262c;box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
 dialog::backdrop{background:rgba(8,28,36,.7)}
@@ -143,13 +156,18 @@ label>span:first-child .hint{display:inline}
 .toast button{background:var(--yel);color:#12323c;border:0;border-radius:6px;padding:8px 12px;font-weight:800;min-height:40px}
 
 @media(max-width:700px){
-  .hd{grid-template-columns:auto auto;justify-content:space-between}
+  header{padding:max(12px,env(safe-area-inset-top)) 0 4px}
+  .hd{grid-template-columns:minmax(0,1fr) auto;gap:8px 16px}
   .hd>*+*{border-left:0;padding-left:0}
-  .hd{grid-template-columns:minmax(0,1fr) auto}.bio-btn{justify-self:start}
-  .tag{grid-column:1/-1;grid-row:2;font-size:14px;border-top:1px solid var(--line);padding-top:14px}
-  .ig{width:52px;height:52px}
-  .item,.add-tile{flex-basis:70vw}
+  .bio-btn{justify-self:start;font-size:24px;padding:8px 4px}
+  .tag{grid-column:1/-1;grid-row:2;font-size:12.5px;font-weight:700;letter-spacing:.02em;line-height:1.35;border-top:1px solid var(--line);padding-top:10px}
+  .ig{width:44px;height:44px}.ig svg{width:24px;height:24px}
+  /* poster sized so poster + title fit in the visible viewport, under the header */
+  .car{--iw:clamp(180px,min(72vw,calc((100svh - 300px) * .7055)),340px)}
+  .track{scroll-padding-inline:0;padding-inline:calc((100% - var(--iw))/2);padding-top:10px}
+  .item,.add-tile{scroll-snap-align:center}
   .arrow{display:none!important}
+  footer{margin-top:12px}
   .cols{grid-template-columns:minmax(0,1fr)}
   .meta{border-right:0;padding-right:0;border-bottom:1.5px solid rgba(255,255,255,.6);padding-bottom:16px}
   .meta dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px}
@@ -160,6 +178,8 @@ label>span:first-child .hint{display:inline}
   .me{grid-template-columns:minmax(0,120px) minmax(0,1fr)}
   .grid{grid-template-columns:minmax(0,1fr)}
   .login-link{position:static;display:block;margin:14px auto 0}
+  .x{top:8px;margin:8px 8px -52px 0}
+  .info{padding-top:20px}
 }
 @media(prefers-reduced-motion:reduce){.walker,.walker svg,.leg{animation:none}.walker{transform:translateX(20px)}.poster{transition:none}}
 </style>
@@ -185,6 +205,7 @@ label>span:first-child .hint{display:inline}
 <main>
   <div class="car">
     <div class="track" id="track" aria-label="Filmer"></div>
+    <div class="dots" id="dots" aria-label="Velg film"></div>
     <button class="arrow prev" id="prev" aria-label="Forrige"><svg viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 4 6.5 10l6 6"/></svg></button>
     <button class="arrow next" id="next" aria-label="Neste"><svg viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4l6 6-6 6"/></svg></button>
   </div>
@@ -252,10 +273,10 @@ label>span:first-child .hint{display:inline}
 
 <dialog id="loginDlg"><form id="loginForm" method="dialog">
   <h2>Logg inn</h2>
-  <p class="sub">Demo: hvilket som helst passord fungerer. På den ekte siden kobles dette til en ordentlig innlogging.</p>
+  <p class="sub">Demo: brukernavn og passord er fylt ut — trykk «Logg inn». På den ekte siden kobles dette til en ordentlig innlogging.</p>
   <div class="grid">
     <label class="full">E-post<input name="email" type="email" autocomplete="username" value="adrian@langsomfilm.no"></label>
-    <label class="full">Passord<input name="pw" type="password" autocomplete="current-password" required></label>
+    <label class="full">Passord<input name="pw" type="password" autocomplete="current-password" value="langsomfilm" required></label>
   </div>
   <div class="actions"><button type="button" class="abtn ghost" data-close>Avbryt</button><button class="abtn" value="ok">Logg inn</button></div>
 </form></dialog>
@@ -303,6 +324,7 @@ function render(){
   $('#mail').textContent=(s.email||'').toUpperCase();$('#mail').href='mailto:'+s.email;
   $('#igLink').href=$('#igLink2').href=s.instagram||'https://www.instagram.com/';
   $('#adminbar').hidden=!admin;$('#loginLink').hidden=admin;
+  $('#dots').innerHTML='';
   track.innerHTML=state.films.map((f,i)=>`
     <figure class="item" data-i="${i}">
       <button class="poster" data-open="${i}" aria-label="Snu plakaten for ${esc(f.title)}"><img src="${esc(f.poster)}" alt="Plakat: ${esc(f.title)}" loading="lazy"></button>
@@ -315,7 +337,16 @@ function render(){
 function arrows(){
   $('#prev').hidden=track.scrollLeft<8;
   $('#next').hidden=track.scrollLeft+track.clientWidth>=track.scrollWidth-8;
+  const items=[...track.querySelectorAll('.item')];const dots=$('#dots');
+  dots.hidden=items.length<2||track.scrollWidth<=track.clientWidth+8;
+  if(dots.childElementCount!==items.length)dots.innerHTML=items.map((it,k)=>`<button data-go="${k}" aria-label="${esc(state.films[k]?.title)}"></button>`).join('');
+  const mid=track.getBoundingClientRect().left+track.clientWidth/2;let best=0,bd=1e9;
+  const atEnd=track.scrollLeft+track.clientWidth>=track.scrollWidth-8;
+  items.forEach((it,k)=>{const r=it.getBoundingClientRect(),d=Math.abs(r.left+r.width/2-mid);if(d<bd){bd=d;best=k}});
+  if(track.scrollLeft<8)best=0;else if(atEnd&&innerWidth>700)best=items.length-1;
+  [...dots.children].forEach((b,k)=>b.setAttribute('aria-current',k===best?'true':'false'));
 }
+$('#dots').onclick=e=>{const b=e.target.closest('[data-go]');if(b)track.querySelector(`.item[data-i="${b.dataset.go}"]`).scrollIntoView({behavior:reduce?'auto':'smooth',inline:innerWidth>700?'start':'center',block:'nearest'})};
 track.addEventListener('scroll',arrows,{passive:true});addEventListener('resize',arrows);
 const step=()=>{const it=track.querySelector('.item,.add-tile');return it?it.getBoundingClientRect().width+parseFloat(getComputedStyle(track).columnGap||20):300};
 $('#prev').onclick=()=>track.scrollBy({left:-step(),behavior:reduce?'auto':'smooth'});
@@ -334,7 +365,7 @@ function flipOpen({from,frontHTML,frontClass='',backHTML,maxW,intro,onClose}){
   const to={left:(vw-W)/2,top:(vh-H)/2,width:W,height:H};
   const scrim=document.createElement('div');scrim.className='scrim';
   const fl=document.createElement('div');fl.className='flip';fl.setAttribute('role','dialog');fl.setAttribute('aria-modal','true');
-  fl.innerHTML=`<div class="face front ${frontClass}">${frontHTML}</div><div class="face back">${backHTML}<button class="x" aria-label="Lukk">${X}</button></div>`;
+  fl.innerHTML=`<div class="face front ${frontClass}">${frontHTML}</div><div class="face back"><button class="x" aria-label="Lukk">${X}</button>${backHTML}</div>`;
   document.body.append(scrim,fl);document.body.style.overflow='hidden';
   const px=r=>({left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});
   const mid=(a,b)=>({left:(a.left+b.left)/2,top:(a.top+b.top)/2-30,width:(a.width+b.width)/2,height:(a.height+b.height)/2});
@@ -456,7 +487,7 @@ bf.elements.portrait.onchange=async e=>{const f=e.target.files[0];if(f){bdraft.p
 bf.onsubmit=e=>{e.preventDefault();for(const k of['tagline','company','name','about','email','instagram'])bdraft[k]=bf.elements[k].value.trim();state.site=bdraft;$('#bioDlg').close();commit();toast('Bio er oppdatert')};
 
 /* login */
-$('#loginLink').onclick=()=>{$('#loginForm').elements.pw.value='';$('#loginDlg').showModal()};
+$('#loginLink').onclick=()=>$('#loginDlg').showModal();
 $('#loginForm').onsubmit=e=>{e.preventDefault();admin=true;try{sessionStorage.setItem(KEY+'-admin','1')}catch(e){}$('#loginDlg').close();render();toast('Du er logget inn')};
 $('#logout').onclick=()=>{admin=false;try{sessionStorage.removeItem(KEY+'-admin')}catch(e){}render()};
 $('#addFilm').onclick=()=>editFilm(-1);
