@@ -12,8 +12,8 @@ backend:
     uploadMedia: "Last opp {{path}} (via CMS)"
     deleteMedia: "Slett {{path}} (via CMS)"
 
-site_url: https://0xjensmalm.github.io/langsomfilm/
-display_url: https://0xjensmalm.github.io/langsomfilm/
+site_url: https://langsomfilm.no/
+display_url: https://langsomfilm.no/
 
 # Uploaded images go in assets/uploads and are referenced relative to the site root,
 # so the paths keep working when the site moves to langsomfilm.no.
