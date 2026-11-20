@@ -3,185 +3,185 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#25677b">
+<meta name="theme-color" content="#e9ece3">
 <title>Langsom Film</title>
-<meta name="description" content="Langsom Film er et norsk produksjonsselskap for karakterdrevne filmer.">
+<meta name="description" content="Langsom Film er et norsk uavhengig produksjonsselskap basert i Oslo.">
 <meta property="og:title" content="Langsom Film">
-<meta property="og:description" content="Norsk produksjonsselskap for karakterdrevne filmer som utforsker livets store spørsmål gjennom vanlige mennesker.">
+<meta property="og:description" content="Et norsk uavhengig produksjonsselskap basert i Oslo.">
 <meta property="og:image" content="https://0xjensmalm.github.io/langsomfilm/assets/yrkesfag.jpg">
 <meta property="og:type" content="website">
+<link rel="preload" href="assets/fonts/HenriksHand-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-/* VOICE: quiet, confident, a director's shelf of posters — the work speaks.
-   IDEA: a DVD shelf; pick up a cover and turn it over to read the back.
-   PICTURE: the posters themselves, large, in one sliding row; a slow turtle crosses the floor.
-   COLOUR and TYPE: brand teal ground, warm yellow accent, white text; Montserrat black for titles.
-   LAYOUT: header strip (Bio · tagline · Instagram), carousel, footer lane with the turtle. */
-:root{color-scheme:dark;--bg:#25677b;--deep:#1d5566;--card:#1f5a6c;--ink:#fff;--soft:#d6e6eb;--yel:#f7e14b;--line:rgba(255,255,255,.35)}
+/* VOICE: quiet, handmade, unhurried — the posters do the talking.
+   COLOUR and TYPE: pale sage paper, dark forest-green ink; Henrik's hand for every label and title,
+   a plain sans for longer reading text.
+   LAYOUT: header (logo · tagline · Bio · language), a large centred poster carousel, footer (mail · turtle · Instagram). */
+@font-face{font-family:"Henriks Hand";src:url("assets/fonts/HenriksHand-Regular.ttf") format("truetype");font-display:swap}
+:root{color-scheme:light;--bg:#e9ece3;--paper:#f4f5ef;--ink:#1d3a2a;--soft:#5a6b5f;--line:rgba(29,58,42,.4);
+  --hand:"Henriks Hand","Segoe Print","Bradley Hand",cursive;--sans:Montserrat,system-ui,sans-serif}
 *{box-sizing:border-box;min-width:0}
 html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font:16px/1.55 Montserrat,system-ui,sans-serif;overflow-x:clip;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
-button{font:inherit;color:inherit;cursor:pointer}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);font-weight:500;overflow-x:clip;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+button,select{font:inherit;color:inherit;cursor:pointer}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
-.wrap{width:min(1240px,100%);margin:0 auto;padding:0 max(4vw,16px,env(safe-area-inset-left))}
+:focus-visible{outline:2.5px solid var(--ink);outline-offset:4px}
+.hand{font-family:var(--hand);font-weight:400;text-transform:uppercase;letter-spacing:.14em}
+.wrap{width:min(1440px,100%);margin:0 auto;padding:0 max(4vw,16px,env(safe-area-inset-left))}
 
 /* header */
-header{padding:clamp(18px,3vw,36px) 0 clamp(14px,2vw,26px)}
-.hd{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:clamp(16px,3vw,40px)}
-.hd>*+*{border-left:1px solid var(--line);padding-left:clamp(16px,3vw,40px)}
-.bio-btn{background:none;border:0;padding:10px 6px;font-weight:900;font-size:28px;color:var(--yel);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:7px;letter-spacing:.01em}
-.bio-btn:hover{color:#fff}
-.tag{margin:0;text-align:center;font-weight:800;text-transform:uppercase;color:var(--yel);font-size:clamp(15px,1.7vw,22px);line-height:1.2;text-wrap:balance}
-.ig{display:grid;place-items:center;width:64px;height:64px;border-radius:8px;color:var(--yel)}
-.ig:hover{color:#fff}
-.ig svg{width:30px;height:30px}
+header{padding:clamp(18px,2.6vw,40px) 0 clamp(8px,1.4vw,20px)}
+.hd{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:clamp(16px,2.6vw,44px)}
+.hd>*+*{border-left:1.5px solid var(--line);padding-left:clamp(16px,2.6vw,44px)}
+.logo{display:flex;align-items:center;gap:clamp(10px,1vw,18px);text-decoration:none;font-family:var(--hand);font-size:clamp(28px,2.8vw,46px);line-height:1;white-space:nowrap}
+.logo svg{width:clamp(56px,5.4vw,92px);height:auto;flex:none}
+.tag{margin:0;text-align:center;font-size:clamp(14px,1.45vw,23px);line-height:1.45;text-wrap:balance}
+.bio-btn{background:none;border:0;padding:8px 4px;font-size:clamp(22px,2vw,30px);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:9px}
+.bio-btn:hover{text-decoration-thickness:3px}
+.lang{position:relative;display:flex;align-items:center}
+.lang select{appearance:none;-webkit-appearance:none;background:none;border:0;border-radius:4px;padding:8px 26px 8px 4px;font-family:var(--hand);font-size:clamp(20px,1.8vw,27px);letter-spacing:.14em}
+.lang svg{position:absolute;right:2px;width:16px;height:16px;pointer-events:none}
 
 /* carousel */
-main{flex:1;position:relative}
-.car{position:relative;--iw:clamp(210px,27vw,340px)}
-.track{display:flex;gap:clamp(14px,2vw,26px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:14px max(4vw,16px) 8px;scroll-padding-inline:max(4vw,16px)}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(8px,2vw,32px)}
+.car{position:relative;--iw:clamp(230px,min(32vw,calc((100vh - 320px) * .7055)),410px)}
+.track{display:flex;gap:clamp(16px,2.2vw,32px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:14px max(4vw,16px) 8px;scroll-padding-inline:max(4vw,16px)}
 .track::-webkit-scrollbar{display:none}
-@media(min-width:1240px){.track{padding-inline:calc((100vw - 1240px)/2 + 4vw)}}
+@media(min-width:1440px){.track{padding-inline:calc((100vw - 1440px)/2 + 4vw);scroll-padding-inline:calc((100vw - 1440px)/2 + 4vw)}}
+.track.fits{justify-content:center}
 .item{flex:0 0 var(--iw);scroll-snap-align:start;margin:0;display:flex;flex-direction:column;align-items:center}
-.poster{display:block;width:100%;aspect-ratio:436/618;padding:0;border:0;background:#123;border-radius:2px;overflow:hidden;box-shadow:0 18px 40px -18px rgba(0,0,0,.6);transition:transform .35s ease,box-shadow .35s ease}
+.poster{display:block;width:100%;aspect-ratio:436/618;padding:0;border:0;background:#d4d9cd;border-radius:2px;overflow:hidden;box-shadow:0 14px 30px -18px rgba(20,40,28,.55);transition:transform .2s ease,box-shadow .2s ease}
 .poster img{width:100%;height:100%;object-fit:cover;display:block}
-@media(hover:hover){.poster:hover{transform:translateY(-6px);box-shadow:0 30px 50px -22px rgba(0,0,0,.7)}}
+@media(hover:hover){.poster:hover{transform:translateY(-4px);box-shadow:0 22px 38px -20px rgba(20,40,28,.6)}}
 .poster:active{transform:scale(.985)}
-.item.lifted .poster{visibility:hidden}
-.item h2{margin:14px 0 0;width:100%;text-align:center;font-size:clamp(15px,1.4vw,17px);line-height:1.25;font-weight:800;text-transform:uppercase;letter-spacing:.03em;text-wrap:balance}
-.arrow{position:absolute;top:calc(50% - 40px);width:48px;height:48px;border-radius:50%;border:2px solid #fff;background:rgba(20,50,60,.55);display:grid;place-items:center;transition:opacity .2s;z-index:2}
-.arrow.prev{left:max(1.5vw,8px)}.arrow.next{right:max(1.5vw,8px)}
+.item h2{margin:18px 0 0;width:100%;text-align:center;font-size:clamp(18px,1.6vw,24px);line-height:1.3;text-wrap:balance}
+.arrow{position:absolute;top:calc(50% - 44px);width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ink);background:rgba(233,236,227,.85);display:grid;place-items:center;transition:opacity .15s;z-index:2}
+.arrow:hover{background:var(--paper)}
+.arrow.prev{left:max(1.2vw,8px)}.arrow.next{right:max(1.2vw,8px)}
 .arrow[hidden]{display:grid;opacity:0;pointer-events:none}
 .arrow svg{width:20px;height:20px}
 .empty{padding:60px 0;text-align:center;color:var(--soft)}
-.dots{display:flex;justify-content:center;gap:2px;margin-top:6px}
+.dots{display:flex;justify-content:center;gap:2px;margin-top:14px}
 .dots[hidden]{display:none}
 .dots button{width:28px;height:28px;border:0;background:none;padding:0;display:grid;place-items:center}
-.dots button::before{content:"";width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);transition:background .2s,transform .2s}
-.dots button[aria-current="true"]::before{background:var(--yel);transform:scale(1.25)}
+.dots button::before{content:"";width:9px;height:9px;border-radius:50%;background:rgba(29,58,42,.25);transition:background .15s}
+.dots button[aria-current="true"]::before{background:var(--ink)}
 
-/* footer + turtle */
-footer{position:relative;margin-top:clamp(20px,4vw,48px);padding:18px 0 calc(96px + env(safe-area-inset-bottom));text-align:center}
-.contact{display:inline-flex;align-items:center;gap:18px;font-weight:800;color:var(--yel);font-size:clamp(15px,1.6vw,19px);flex-wrap:wrap;justify-content:center}
-.contact span.sep{width:1px;height:26px;background:var(--line)}
-.contact a{text-decoration:none}.contact a:hover{text-decoration:underline}
-.lane{position:absolute;left:0;right:0;bottom:calc(14px + env(safe-area-inset-bottom));height:56px;overflow:hidden;pointer-events:none}
-.walker{position:absolute;bottom:0;left:0;width:84px;animation:walk 95s linear -28s infinite}
-.walker svg{width:84px;height:auto;display:block;animation:bob 1.4s ease-in-out infinite}
-.leg{transform-box:fill-box;transform-origin:50% 0;animation:step 1.4s ease-in-out infinite}
-.leg.b{animation-delay:-.7s}
-@keyframes walk{from{transform:translateX(-100px)}to{transform:translateX(calc(100vw + 20px))}}
-@keyframes step{0%,100%{transform:rotate(16deg)}50%{transform:rotate(-16deg)}}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
-.login-link{position:absolute;right:max(4vw,16px);bottom:70px;background:none;border:0;font-size:13px;color:var(--soft);opacity:.7;padding:8px}
-.login-link:hover{opacity:1;text-decoration:underline}
+/* footer */
+footer{padding:clamp(20px,3vw,40px) 0 calc(18px + env(safe-area-inset-bottom));text-align:center}
+.contact{display:inline-flex;align-items:center;gap:clamp(16px,2.4vw,36px);flex-wrap:wrap;justify-content:center}
+.contact>*+*{border-left:1.5px solid var(--line);padding-left:clamp(16px,2.4vw,36px)}
+.contact a{text-decoration:none;font-size:clamp(16px,1.6vw,22px)}.contact a:hover{text-decoration:underline;text-underline-offset:6px}
+.contact .tl{width:76px;height:auto;display:block}
+.contact .ig{display:grid;place-items:center;width:44px;height:44px}
+.contact .ig svg{width:34px;height:34px}
+.login-link{display:block;margin:14px auto 0;background:none;border:0;font-size:13px;color:var(--soft);padding:8px}
+.login-link:hover{color:var(--ink);text-decoration:underline}
 
-/* flip overlay */
-.scrim{position:fixed;inset:0;background:rgba(8,28,36,.7);backdrop-filter:blur(3px);z-index:20;opacity:0;transition:opacity .45s}
-.scrim.on{opacity:1}
-.flip{position:fixed;z-index:21;transform-style:preserve-3d}
-.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:4px;overflow:hidden}
-.face.front img{width:100%;height:100%;object-fit:cover;display:block}
-.face.back{transform:rotateY(180deg);background:var(--card);border:2px solid rgba(255,255,255,.75);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);overflow:auto;overscroll-behavior:contain}
-.flip.open{transform:none!important}
-.flip.open .front{display:none}
-.flip.open .back{transform:none}
-.x{position:sticky;top:10px;float:right;margin:10px 10px -54px 0;width:44px;height:44px;border:0;border-radius:50%;background:rgba(15,43,51,.55);display:grid;place-items:center;z-index:2}
-.x:hover{background:rgba(15,43,51,.85)}
-.x svg{width:24px;height:24px}
+/* detail sheet (film + bio) — quick fade, no 3D */
+.scrim{position:fixed;inset:0;background:rgba(24,40,30,.42);z-index:20;opacity:0;transition:opacity .16s}
+.sheet{--pad:24px;position:fixed;z-index:21;left:50%;top:50%;width:calc(100vw - var(--pad)*2);max-height:calc(100vh - var(--pad)*2);max-height:calc(100svh - var(--pad)*2);overflow:auto;overscroll-behavior:contain;
+  background:var(--paper);border:1.5px solid var(--ink);border-radius:4px;box-shadow:0 30px 70px -30px rgba(20,40,28,.55);opacity:0;transform:translate(-50%,-48%);transition:opacity .16s ease-out,transform .16s ease-out}
+.scrim.on{opacity:1}.sheet.on{opacity:1;transform:translate(-50%,-50%)}
+.x{position:sticky;top:10px;float:right;margin:10px 10px -54px 0;width:44px;height:44px;border:0;border-radius:50%;background:rgba(244,245,239,.9);display:grid;place-items:center;z-index:2}
+.x:hover{background:#e3e7dc}
+.x svg{width:22px;height:22px}
 
-.info{padding:clamp(22px,3.4vw,40px) clamp(20px,3.4vw,44px)}
-.info h3{margin:0;font-weight:900;color:var(--yel);font-size:clamp(34px,5vw,56px);line-height:1;text-transform:uppercase;padding-right:40px;overflow-wrap:anywhere}
-.by{margin:8px 0 0;font-weight:800;text-transform:uppercase;font-size:clamp(14px,1.5vw,17px)}
-.cols{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:clamp(20px,3vw,40px);margin-top:clamp(18px,2.6vw,30px)}
-.meta{border-right:1.5px solid rgba(255,255,255,.8);padding-right:clamp(16px,2.4vw,30px)}
+.info{padding:clamp(22px,3.4vw,44px) clamp(20px,3.4vw,48px)}
+.info h3{margin:0;font-size:clamp(32px,4.4vw,54px);line-height:1.1;padding-right:44px;overflow-wrap:anywhere}
+.by{margin:10px 0 0;font-size:clamp(15px,1.4vw,19px)}
+.cols{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:clamp(20px,3vw,40px);margin-top:clamp(18px,2.6vw,30px)}
+.meta{border-right:1.5px solid var(--line);padding-right:clamp(16px,2.4vw,30px)}
 .meta dl{margin:0}
-.meta dt{font-size:13px;text-transform:uppercase;color:var(--soft);font-weight:600;margin-top:12px}
-.meta dt:first-child{margin-top:0}
-.meta dd{margin:0;font-weight:700;font-size:15px;line-height:1.35}
-.syn p{margin:0 0 1em;font-size:16px;max-width:62ch}
+.meta dt{font-size:14px;color:var(--soft);margin-top:14px}
+.meta dl>div:first-child dt{margin-top:0}
+.meta dd{margin:0;font-weight:600;font-size:15px;line-height:1.4}
+.syn p{margin:0 0 1em;max-width:62ch}
 .stills{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,440px));gap:12px;margin-top:clamp(12px,2vw,22px)}
 .stills img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-radius:2px}
 .note{font-size:13px;color:var(--soft);margin:14px 0 0}
-
-/* bio card */
-.bcard-front{background:var(--card);border:2px solid rgba(255,255,255,.75);display:grid;place-items:center;align-content:center;gap:4px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
-.bcard-front svg{width:30%;max-width:130px}
-.bcard-front b{font-weight:900;color:var(--yel);font-size:clamp(26px,4vw,40px);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:8px}
-.bio{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,40px)}
-.bio>section+section{border-left:1.5px solid rgba(255,255,255,.8);padding-left:clamp(20px,3vw,40px)}
-.bio h3{margin:0;font-weight:900;color:var(--yel);font-size:clamp(28px,3.4vw,40px);line-height:1.05;text-transform:uppercase;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:8px;padding-right:36px}
-.bio h4{margin:12px 0 16px;font-weight:800;text-transform:uppercase;font-size:17px}
+.bio{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,44px)}
+.bio>section+section{border-left:1.5px solid var(--line);padding-left:clamp(20px,3vw,44px)}
+.bio h3{font-size:clamp(28px,3.2vw,40px);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:9px;padding-right:44px}
+.bio h4{margin:14px 0 16px;font-size:17px}
 .bio p{margin:0 0 1em}
 .me{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:18px;align-items:start}
-.me img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;background:#0b1a20}
+.me img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;background:#d4d9cd}
 
 /* admin */
-.adminbar{position:sticky;top:0;z-index:15;background:var(--yel);color:#12323c;font-weight:700;font-size:14px}
+.adminbar{position:sticky;top:0;z-index:15;background:var(--ink);color:#fff;font-weight:600;font-size:14px}
 .adminbar .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding-block:8px}
 .adminbar .wrap>span{margin-right:auto}
-.abtn{border:0;border-radius:6px;padding:10px 14px;min-height:44px;background:#12323c;color:#fff;font-weight:700;font-size:14px}
+.abtn{border:0;border-radius:6px;padding:10px 14px;min-height:44px;background:var(--ink);color:#fff;font-weight:700;font-size:14px}
+.adminbar .abtn{background:var(--bg);color:var(--ink)}
 .abtn.ghost{background:transparent;color:inherit;border:2px solid currentColor}
-.abtn.danger{background:#a3262a}
-.tools{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
-.tools button{border:1px solid var(--line);background:rgba(0,0,0,.18);border-radius:6px;min-height:40px;min-width:40px;padding:6px 10px;font-size:13px;font-weight:700}
-.tools button:hover{background:rgba(0,0,0,.35)}
-.tools .del.armed{background:#a3262a;border-color:#a3262a}
-.add-tile{flex:0 0 var(--iw);aspect-ratio:436/618;border:2px dashed rgba(255,255,255,.55);border-radius:4px;background:rgba(0,0,0,.08);display:grid;place-items:center;align-content:center;gap:8px;font-weight:800;font-size:17px}
-.add-tile span{font-size:46px;line-height:1;color:var(--yel)}
-dialog{border:0;padding:0;border-radius:10px;width:min(720px,calc(100vw - 24px));max-height:calc(100vh - 24px);background:#f7f5ef;color:#14262c;box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
-dialog::backdrop{background:rgba(8,28,36,.7)}
+.adminbar .abtn.ghost{color:#fff;background:transparent}
+.tools{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;justify-content:center}
+.tools button{border:1px solid var(--line);background:var(--paper);border-radius:6px;min-height:40px;min-width:40px;padding:6px 10px;font-size:13px;font-weight:700}
+.tools button:hover{background:#fff}
+.tools .del.armed{background:#a3262a;border-color:#a3262a;color:#fff}
+.add-tile{flex:0 0 var(--iw);aspect-ratio:436/618;border:2px dashed var(--line);border-radius:4px;background:rgba(255,255,255,.3);display:grid;place-items:center;align-content:center;gap:8px;font-weight:700;font-size:17px}
+.add-tile span{font-size:46px;line-height:1}
+dialog{border:0;padding:0;border-radius:10px;width:min(720px,calc(100vw - 24px));max-height:calc(100vh - 24px);background:var(--paper);color:var(--ink);box-shadow:0 40px 90px -30px rgba(20,40,28,.6)}
+dialog::backdrop{background:rgba(24,40,30,.45)}
 dialog form{padding:clamp(18px,3vw,30px)}
-dialog h2{margin:0 0 4px;font-weight:900;font-size:26px}
-dialog .sub{margin:0 0 18px;color:#4c5d62;font-size:14px}
+dialog h2{margin:0 0 4px;font-weight:700;font-size:26px}
+dialog .sub{margin:0 0 18px;color:var(--soft);font-size:14px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px}
 .full{grid-column:1/-1}
-label{display:grid;gap:4px;font-size:13px;font-weight:700;color:#33474d}
-input,textarea{font:16px/1.4 Montserrat,system-ui,sans-serif;padding:10px 12px;border:1.5px solid #c6cfcf;border-radius:6px;background:#fff;color:#14262c;width:100%}
-textarea{min-height:130px;resize:vertical}
-input:focus,textarea:focus{outline:3px solid #2c7d93;outline-offset:0;border-color:#2c7d93}
-.hint{font-weight:500;color:#5d6d71}
-label>span:first-child .hint{display:inline}
+.sec{grid-column:1/-1;margin:10px 0 -4px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);border-top:1px solid var(--line);padding-top:12px}
+label{display:grid;gap:4px;font-size:13px;font-weight:700;color:#33473b}
+input,textarea{font:16px/1.4 var(--sans);padding:10px 12px;border:1.5px solid #c3cbbf;border-radius:6px;background:#fff;color:var(--ink);width:100%}
+textarea{min-height:120px;resize:vertical}
+input:focus,textarea:focus{outline:3px solid #4d7a5c;outline-offset:0;border-color:#4d7a5c}
+.hint{font-weight:500;color:var(--soft)}
 .thumbs{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
 .thumb{position:relative}
 .thumb img{height:80px;border-radius:4px;display:block}
 .thumb button{position:absolute;top:-8px;right:-8px;width:28px;height:28px;border-radius:50%;border:0;background:#a3262a;color:#fff;font-weight:900;line-height:1}
 .actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;flex-wrap:wrap}
-.actions .abtn.ghost{color:#12323c}
 .err{color:#a3262a;font-weight:700;font-size:14px;min-height:1.2em;margin:8px 0 0}
-.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(30px);opacity:0;background:#0f2b33;color:#fff;padding:10px 12px 10px 18px;border-radius:8px;display:flex;gap:14px;align-items:center;z-index:40;transition:.3s;font-size:14px;font-weight:600;max-width:calc(100vw - 24px)}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(30px);opacity:0;background:var(--ink);color:#fff;padding:10px 12px 10px 18px;border-radius:8px;display:flex;gap:14px;align-items:center;z-index:40;transition:.2s;font-size:14px;font-weight:600;max-width:calc(100vw - 24px)}
 .toast.on{opacity:1;transform:translateX(-50%)}
-.toast button{background:var(--yel);color:#12323c;border:0;border-radius:6px;padding:8px 12px;font-weight:800;min-height:40px}
+.toast button{background:var(--bg);color:var(--ink);border:0;border-radius:6px;padding:8px 12px;font-weight:700;min-height:40px}
 
+@media(max-width:960px){
+  .hd{grid-template-columns:minmax(0,1fr) auto auto;row-gap:10px}
+  .tag{grid-column:1/-1;grid-row:2;border-left:0!important;padding-left:0!important;border-top:1.5px solid var(--line);padding-top:12px}
+}
 @media(max-width:700px){
-  header{padding:max(12px,env(safe-area-inset-top)) 0 4px}
-  .hd{grid-template-columns:minmax(0,1fr) auto;gap:8px 16px}
-  .hd>*+*{border-left:0;padding-left:0}
-  .bio-btn{justify-self:start;font-size:24px;padding:8px 4px}
-  .tag{grid-column:1/-1;grid-row:2;font-size:12.5px;font-weight:700;letter-spacing:.02em;line-height:1.35;border-top:1px solid var(--line);padding-top:10px}
-  .ig{width:44px;height:44px}.ig svg{width:24px;height:24px}
+  header{padding:max(12px,env(safe-area-inset-top)) 0 0}
+  .hd{gap:8px 14px}
+  .hd>*+*{padding-left:14px}
+  .logo{font-size:25px;gap:8px}.logo svg{width:46px}
+  .bio-btn{font-size:20px;text-underline-offset:7px}
+  .lang select{font-size:18px;padding-right:22px}.lang svg{width:13px}
+  .tag{font-size:12.5px;letter-spacing:.1em;padding-top:10px}
+  main{justify-content:flex-start}
   /* poster sized so poster + title fit in the visible viewport, under the header */
-  .car{--iw:clamp(180px,min(72vw,calc((100svh - 300px) * .7055)),340px)}
+  .car{--iw:clamp(180px,min(74vw,calc((100svh - 300px) * .7055)),360px)}
   .track{scroll-padding-inline:0;padding-inline:calc((100% - var(--iw))/2);padding-top:10px}
   .item,.add-tile{scroll-snap-align:center}
+  .item h2{margin-top:12px;font-size:18px}
+  .dots{margin-top:6px}
   .arrow{display:none!important}
-  footer{margin-top:12px}
+  .contact{gap:12px}.contact>*+*{padding-left:12px}
+  .contact a{font-size:15px;letter-spacing:.1em}
+  .contact .tl{width:48px}.contact .ig svg{width:28px}
+  .sheet{--pad:10px}
   .cols{grid-template-columns:minmax(0,1fr)}
-  .meta{border-right:0;padding-right:0;border-bottom:1.5px solid rgba(255,255,255,.6);padding-bottom:16px}
+  .meta{border-right:0;padding-right:0;border-bottom:1.5px solid var(--line);padding-bottom:16px}
   .meta dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px}
-  .meta dt{margin-top:8px}.meta dt:first-child{margin-top:8px}
-  .meta dl>div{min-width:0}
+  .meta dt,.meta dl>div:first-child dt{margin-top:8px}
   .bio{grid-template-columns:minmax(0,1fr)}
-  .bio>section+section{border-left:0;padding-left:0;border-top:1.5px solid rgba(255,255,255,.6);padding-top:20px}
+  .bio>section+section{border-left:0;padding-left:0;border-top:1.5px solid var(--line);padding-top:20px}
   .me{grid-template-columns:minmax(0,120px) minmax(0,1fr)}
   .grid{grid-template-columns:minmax(0,1fr)}
-  .login-link{position:static;display:block;margin:14px auto 0}
   .x{top:8px;margin:8px 8px -52px 0}
   .info{padding-top:20px}
 }
-@media(prefers-reduced-motion:reduce){.walker,.walker svg,.leg{animation:none}.walker{transform:translateX(20px)}.poster{transition:none}}
+@media(prefers-reduced-motion:reduce){.poster,.scrim,.sheet,.toast{transition:none}}
 </style>
 </head>
 <body>
@@ -194,51 +194,51 @@ label>span:first-child .hint{display:inline}
 
 <header>
   <div class="wrap hd">
-    <button class="bio-btn" id="bioBtn" aria-haspopup="dialog">BIO</button>
-    <p class="tag" id="tagline"></p>
-    <div class="igw"><a class="ig" id="igLink" href="https://www.instagram.com/" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
-    </a></div>
+    <a class="logo" href="./" aria-label="Langsom Film"><svg viewBox="0 0 120 64" aria-hidden="true"><use href="#tl"/></svg><span>Langsom Film</span></a>
+    <p class="tag hand" id="tagline"></p>
+    <button class="bio-btn hand" id="bioBtn" aria-haspopup="dialog">Bio</button>
+    <div class="lang"><select id="langSel" aria-label="Språk / Language"><option value="no">NO</option><option value="en">EN</option></select>
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6"/></svg></div>
   </div>
 </header>
 
 <main>
   <div class="car">
-    <div class="track" id="track" aria-label="Filmer"></div>
-    <div class="dots" id="dots" aria-label="Velg film"></div>
-    <button class="arrow prev" id="prev" aria-label="Forrige"><svg viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 4 6.5 10l6 6"/></svg></button>
-    <button class="arrow next" id="next" aria-label="Neste"><svg viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4l6 6-6 6"/></svg></button>
+    <div class="track" id="track" data-ta="films"></div>
+    <div class="dots" id="dots"></div>
+    <button class="arrow prev" id="prev" data-ta="prev"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 4 6.5 10l6 6"/></svg></button>
+    <button class="arrow next" id="next" data-ta="next"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4l6 6-6 6"/></svg></button>
   </div>
 </main>
 
 <footer>
-  <div class="contact"><a id="mail" href="mailto:contact@langsomfilm.no">CONTACT@LANGSOMFILM.NO</a><span class="sep"></span>
-    <a id="igLink2" href="https://www.instagram.com/" aria-label="Instagram"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a></div>
-  <button class="login-link" id="loginLink">Logg inn</button>
-  <div class="lane" aria-hidden="true"><div class="walker"><svg viewBox="0 0 120 64"><use href="#turtle"/></svg></div></div>
+  <div class="contact">
+    <a class="hand" id="mail" href="mailto:contact@langsomfilm.no">contact@langsomfilm.no</a>
+    <span aria-hidden="true"><svg class="tl" viewBox="0 0 120 64"><use href="#tl"/></svg></span>
+    <span><a class="ig" id="igLink" href="https://www.instagram.com/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a></span>
+  </div>
+  <button class="login-link" id="loginLink" data-t="login">Logg inn</button>
 </footer>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <g id="turtle" stroke="#163a45" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
-      <path d="M14 44 L4 48 L15 50Z" fill="#f2c94c"/>
-      <rect class="leg" x="24" y="40" width="11" height="17" rx="5.5" fill="#f2c94c"/>
-      <rect class="leg b" x="38" y="40" width="11" height="17" rx="5.5" fill="#e6b93a"/>
-      <rect class="leg b" x="72" y="40" width="11" height="17" rx="5.5" fill="#f2c94c"/>
-      <rect class="leg" x="85" y="40" width="11" height="17" rx="5.5" fill="#e6b93a"/>
-      <path d="M92 36 C98 22 118 22 116 36 C115 44 104 46 96 44Z" fill="#f2c94c"/>
-      <circle cx="108" cy="32" r="2.4" fill="#163a45" stroke="none"/>
-      <path d="M12 46 C14 14 40 6 58 6 C80 6 102 16 104 46Z" fill="#f7e48a"/>
-      <path d="M38 13 L48 26 L40 44 M58 7 L58 26 M78 12 L68 26 L76 44 M48 26 H68 M30 30 L48 26 M86 30 L68 26" fill="none" stroke-width="2.6"/>
-      <path d="M14 44 C40 38 78 38 103 44" fill="none" stroke="#fff" stroke-width="3"/>
-      <path d="M12 46 C14 14 40 6 58 6 C80 6 102 16 104 46Z" fill="none"/>
-    </g>
+    <symbol id="tl" viewBox="0 0 120 64">
+      <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M15 43 L5 48 L16 50"/>
+        <rect x="26" y="38" width="12" height="17" rx="6" style="fill:var(--bg)"/>
+        <rect x="76" y="38" width="12" height="17" rx="6" style="fill:var(--bg)"/>
+        <path d="M93 38 C97 24 116 22 116 35 C116 43 105 46 97 44" style="fill:var(--bg)"/>
+        <circle cx="108" cy="32" r="2.2" fill="currentColor" stroke="none"/>
+        <path d="M11 46 C13 14 40 6 58 6 C80 6 103 16 105 46Z" style="fill:var(--bg)"/>
+        <path d="M38 13 L48 26 L41 45 M58 7 V26 M78 12 L68 26 L75 45 M48 26 H68 M28 31 L48 26 M88 31 L68 26" stroke-width="2.4"/>
+      </g>
+    </symbol>
   </defs>
 </svg>
 
 <dialog id="filmDlg"><form id="filmForm" method="dialog">
   <h2 id="filmDlgTitle">Ny film</h2>
-  <p class="sub">Alt her vises på baksiden av plakaten.</p>
+  <p class="sub">Alt her vises når man trykker på plakaten. Engelske felt er valgfrie — tomme felt viser norsk tekst.</p>
   <div class="grid">
     <label class="full">Tittel<input name="title" required></label>
     <label>En film av<input name="director"></label>
@@ -249,8 +249,12 @@ label>span:first-child .hint{display:inline}
     <label>Manus<input name="manus"></label>
     <label class="full"><span>Medvirkende <span class="hint">— skill med komma</span></span><input name="cast"></label>
     <label class="full"><span>Synopsis <span class="hint">— tom linje gir nytt avsnitt</span></span><textarea name="synopsis"></textarea></label>
-    <label><span>Plakat <span class="hint">(stående bilde)</span></span><input type="file" name="poster" accept="image/*"><div class="thumbs" id="posterPrev"></div></label>
-    <label><span>Stillbilder <span class="hint">(velg ett eller flere)</span></span><input type="file" name="stills" accept="image/*" multiple><div class="thumbs" id="stillPrev"></div></label>
+    <p class="sec">English</p>
+    <label class="full">Language<input name="lang_en" placeholder="Norwegian, English"></label>
+    <label class="full">Synopsis (English)<textarea name="synopsis_en"></textarea></label>
+    <p class="sec">Bilder</p>
+    <label><span>Plakat <span class="hint">(1000 × 1414 px)</span></span><input type="file" name="poster" accept="image/*"><div class="thumbs" id="posterPrev"></div></label>
+    <label><span>Stillbilder <span class="hint">(16:10, ett eller flere)</span></span><input type="file" name="stills" accept="image/*" multiple><div class="thumbs" id="stillPrev"></div></label>
   </div>
   <p class="err" id="filmErr"></p>
   <div class="actions"><button type="button" class="abtn ghost" data-close>Avbryt</button><button class="abtn" value="save">Lagre</button></div>
@@ -258,13 +262,18 @@ label>span:first-child .hint{display:inline}
 
 <dialog id="bioDlg"><form id="bioForm" method="dialog">
   <h2>Rediger bio</h2>
-  <p class="sub">Teksten i toppen, visittkortet og kontaktinfo.</p>
+  <p class="sub">Teksten i toppen, bio og kontaktinfo. Engelske felt er valgfrie.</p>
   <div class="grid">
-    <label class="full">Tekst i toppen<textarea name="tagline" style="min-height:70px"></textarea></label>
+    <label class="full">Tekst i toppen<textarea name="tagline" style="min-height:64px"></textarea></label>
     <label class="full">Langsom Film — hva vi gjør<textarea name="company"></textarea></label>
     <label>Navn<input name="name"></label>
     <label>Portrett<input type="file" name="portrait" accept="image/*"><div class="thumbs" id="portraitPrev"></div></label>
     <label class="full">Om meg<textarea name="about"></textarea></label>
+    <p class="sec">English</p>
+    <label class="full">Tagline<textarea name="tagline_en" style="min-height:64px"></textarea></label>
+    <label class="full">What we do<textarea name="company_en"></textarea></label>
+    <label class="full">About me<textarea name="about_en"></textarea></label>
+    <p class="sec">Kontakt</p>
     <label>E-post<input name="email" type="email"></label>
     <label>Instagram-lenke<input name="instagram" type="url"></label>
   </div>
@@ -285,152 +294,152 @@ label>span:first-child .hint{display:inline}
 
 <script>
 {
-const KEY='langsomfilm-demo-v1';
+const KEY='langsomfilm-demo-v2';
 const DEFAULT={
   site:{
-    tagline:'Langsom Film is a Norwegian production company dedicated to character-driven films that explore life’s big questions through ordinary people.',
+    tagline:'Et norsk uavhengig produksjonsselskap basert i Oslo.',
+    tagline_en:'A Norwegian independent production company based in Oslo.',
     company:'Langsom Film er et norsk produksjonsselskap dedikert til karakterdrevne filmer som utforsker livets store spørsmål gjennom vanlige mennesker.\n\nVi utvikler og produserer fiksjon og dokumentar for kino, TV og strømmetjenester, med en tro på at de sterkeste historiene oppstår i møtet mellom det personlige og det universelle.',
+    company_en:'Langsom Film is a Norwegian production company dedicated to character-driven films that explore life’s big questions through ordinary people.\n\nWe develop and produce fiction and documentary for cinema, TV and streaming, believing that the strongest stories arise where the personal meets the universal.',
     name:'Adrian Axel',
     about:'Jeg er regissør og produsent, og drives av en nysgjerrighet på mennesker, relasjoner og de små, avgjørende valgene som former livene våre.\n\nJeg liker å jobbe tett med karakterer over tid, og er opptatt av å lage filmer som er både emosjonelt ærlige og visuelt sterke.',
+    about_en:'I am a director and producer, driven by curiosity about people, relationships and the small, decisive choices that shape our lives.\n\nI like to work closely with characters over time, and I care about making films that are both emotionally honest and visually striking.',
     portrait:'assets/adrian.jpg',email:'contact@langsomfilm.no',instagram:'https://www.instagram.com/'
   },
   films:[
-    {id:'yrkesfag',title:'Yrkesfag',director:'Gabriel Bognaschi',year:'2026',duration:'117 min',lang:'Norsk, engelsk, spansk, tysk',regi:'Gabriel Bognaschi',manus:'Gabriel Bognaschi',cast:'Renate Reinsve, Helene Bjørneby, Lillian Müller, Numan Acar',
-     synopsis:'Halvsøstrene Diana og Lily vokste opp som de eneste fastboende barna i en charterresort på Gran Canaria, der deres grenseløse mor Vera var Star Tour-vertinne.\n\n25 år senere har de begge stor avstand til øya og hverandre; Diana som barnehageansatt i Askim og Lily som pensjonert modell og utelivsløve i Hamburgs kunstscene.\n\nNå må de returnere til øya for å håndtere sin mors plutselige død i de kanariske fjellene. Gjenforeningen byr på en halsbrekkende reise i fortiden og inn mot turistøyas skjulte hjerte.',
-     poster:'assets/yrkesfag.jpg',stills:['assets/still1.jpg','assets/still2.jpg']},
-    {id:'tingenes',title:'Tingenes tilstand',director:'',year:'',duration:'',lang:'Norsk',regi:'',manus:'',cast:'',
-     synopsis:'En originalserie fra NRK.',sample:true,poster:'assets/tingenes.jpg',stills:[]},
+    {id:'tingenes',title:'Tingenes tilstand',director:'',year:'',duration:'',lang:'Norsk',lang_en:'Norwegian',regi:'',manus:'',cast:'',
+     synopsis:'En originalserie fra NRK.',synopsis_en:'An original series from NRK.',sample:true,poster:'assets/tingenes.jpg',stills:[]},
     {id:'bebudelsen',title:'Bebudelsen',director:'Anja Petkovic',year:'',duration:'',lang:'',regi:'Anja Petkovic',manus:'',cast:'Tobias Aksdal, Sunniva Dumont Nordahl, Ketil Kern',
-     synopsis:'',sample:true,poster:'assets/bebudelsen.jpg',stills:[]}
+     synopsis:'',sample:true,poster:'assets/bebudelsen.jpg',stills:[]},
+    {id:'yrkesfag',title:'Yrkesfag',director:'Gabriel Bognaschi',year:'2026',duration:'117 min',lang:'Norsk, engelsk, spansk, tysk',lang_en:'Norwegian, English, Spanish, German',regi:'Gabriel Bognaschi',manus:'Gabriel Bognaschi',cast:'Renate Reinsve, Helene Bjørneby, Lillian Müller, Numan Acar',
+     synopsis:'Halvsøstrene Diana og Lily vokste opp som de eneste fastboende barna i en charterresort på Gran Canaria, der deres grenseløse mor Vera var Star Tour-vertinne.\n\n25 år senere har de begge stor avstand til øya og hverandre; Diana som barnehageansatt i Askim og Lily som pensjonert modell og utelivsløve i Hamburgs kunstscene.\n\nNå må de returnere til øya for å håndtere sin mors plutselige død i de kanariske fjellene. Gjenforeningen byr på en halsbrekkende reise i fortiden og inn mot turistøyas skjulte hjerte.',
+     synopsis_en:'Half-sisters Diana and Lily grew up as the only resident children at a charter resort on Gran Canaria, where their boundless mother Vera worked as a Star Tour rep.\n\n25 years later, both are far removed from the island and from each other: Diana works at a kindergarten in Askim, while Lily is a retired model and fixture of Hamburg’s art-scene nightlife.\n\nNow they must return to the island to deal with their mother’s sudden death in the Canarian mountains. The reunion becomes a breakneck journey into the past and towards the hidden heart of the tourist island.',
+     poster:'assets/yrkesfag.jpg',stills:['assets/still1.jpg','assets/still2.jpg']}
   ]
 };
+const T={
+  no:{films:'Filmer',prev:'Forrige',next:'Neste',close:'Lukk',login:'Logg inn',show:'Vis detaljer om',pick:'Velg film',
+      year:'År',duration:'Varighet',lang:'Språk',regi:'Regi',manus:'Manus',cast:'Medvirkende',by:'En film av',
+      more:'Mer informasjon kommer.',sample:'Eksempelinnhold — fylles ut i redigeringsmodus.',what:'Hva vi gjør',about:'Om meg',
+      poster:'Plakat',still:'Stillbilde',from:'fra',portrait:'Portrett av',empty:'Ingen filmer ennå.'},
+  en:{films:'Films',prev:'Previous',next:'Next',close:'Close',login:'Log in',show:'Show details for',pick:'Choose film',
+      year:'Year',duration:'Runtime',lang:'Language',regi:'Director',manus:'Screenplay',cast:'Cast',by:'A film by',
+      more:'More information coming soon.',sample:'Sample content — to be filled in.',what:'What we do',about:'About me',
+      poster:'Poster',still:'Still',from:'from',portrait:'Portrait of',empty:'No films yet.'}
+};
 const clone=o=>JSON.parse(JSON.stringify(o));
-let state=clone(DEFAULT), admin=false, lastDeleted=null;
+let state=clone(DEFAULT), admin=false, lastDeleted=null, lang='no';
 try{const s=localStorage.getItem(KEY);if(s)state=JSON.parse(s)}catch(e){}
 try{admin=sessionStorage.getItem(KEY+'-admin')==='1'}catch(e){}
+try{lang=localStorage.getItem('langsomfilm-lang')||(/^(nb|nn|no)\b/i.test(navigator.language)?'no':'en')}catch(e){}
+if(!T[lang])lang='no';
+const t=k=>T[lang][k];
+const L=(o,k)=>(lang==='en'&&o[k+'_en'])?o[k+'_en']:(o[k]||'');
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state));return true}catch(e){return false}};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const paras=t=>String(t||'').split(/\n\s*\n/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join('');
+const paras=s=>String(s||'').split(/\n\s*\n/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join('');
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const X='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>';
-const turtle='<svg viewBox="0 0 120 64"><use href="#turtle"/></svg>';
+const X='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>';
+
+/* ---------- language ---------- */
+function applyLang(){
+  document.documentElement.lang=lang;$('#langSel').value=lang;
+  document.querySelectorAll('[data-t]').forEach(el=>el.textContent=t(el.dataset.t));
+  document.querySelectorAll('[data-ta]').forEach(el=>el.setAttribute('aria-label',t(el.dataset.ta)));
+  $('#dots').setAttribute('aria-label',t('pick'));
+  render();
+}
+$('#langSel').onchange=e=>{lang=e.target.value;try{localStorage.setItem('langsomfilm-lang',lang)}catch(_){}if(open)open.close(true);applyLang()};
 
 /* ---------- render ---------- */
 const track=$('#track');
 function render(){
   const s=state.site;
-  $('#tagline').textContent=s.tagline;
-  $('#mail').textContent=(s.email||'').toUpperCase();$('#mail').href='mailto:'+s.email;
-  $('#igLink').href=$('#igLink2').href=s.instagram||'https://www.instagram.com/';
+  $('#tagline').textContent=L(s,'tagline');
+  $('#mail').textContent=s.email||'';$('#mail').href='mailto:'+s.email;
+  $('#igLink').href=s.instagram||'https://www.instagram.com/';
   $('#adminbar').hidden=!admin;$('#loginLink').hidden=admin;
   $('#dots').innerHTML='';
   track.innerHTML=state.films.map((f,i)=>`
     <figure class="item" data-i="${i}">
-      <button class="poster" data-open="${i}" aria-label="Snu plakaten for ${esc(f.title)}"><img src="${esc(f.poster)}" alt="Plakat: ${esc(f.title)}" loading="lazy"></button>
-      <h2>${esc(f.title)}</h2>
+      <button class="poster" data-open="${i}" aria-label="${t('show')} ${esc(f.title)}"><img src="${esc(f.poster)}" alt="${t('poster')}: ${esc(f.title)}" loading="lazy"></button>
+      <h2 class="hand">${esc(f.title)}</h2>
       ${admin?`<div class="tools"><button data-edit="${i}">Rediger</button><button data-left="${i}" aria-label="Flytt til venstre" ${i?'':'disabled'}>←</button><button data-right="${i}" aria-label="Flytt til høyre" ${i<state.films.length-1?'':'disabled'}>→</button><button class="del" data-del="${i}">Slett</button></div>`:''}
     </figure>`).join('')+(admin?`<button class="add-tile" data-add><span>+</span>Legg til film</button>`:'')+
-    (!state.films.length&&!admin?'<p class="empty">Ingen filmer ennå.</p>':'');
-  arrows();
+    (!state.films.length&&!admin?`<p class="empty">${t('empty')}</p>`:'');
+  fit();
 }
+/* centre the row when every poster fits on screen */
+function fit(){track.classList.remove('fits');track.classList.toggle('fits',innerWidth>700&&track.scrollWidth<=track.clientWidth+2);arrows()}
 function arrows(){
-  $('#prev').hidden=track.scrollLeft<8;
-  $('#next').hidden=track.scrollLeft+track.clientWidth>=track.scrollWidth-8;
+  const overflow=track.scrollWidth>track.clientWidth+8;
+  $('#prev').hidden=!overflow||track.scrollLeft<8;
+  $('#next').hidden=!overflow||track.scrollLeft+track.clientWidth>=track.scrollWidth-8;
   const items=[...track.querySelectorAll('.item')];const dots=$('#dots');
-  dots.hidden=items.length<2||track.scrollWidth<=track.clientWidth+8;
+  dots.hidden=items.length<2||!overflow;
   if(dots.childElementCount!==items.length)dots.innerHTML=items.map((it,k)=>`<button data-go="${k}" aria-label="${esc(state.films[k]?.title)}"></button>`).join('');
   const mid=track.getBoundingClientRect().left+track.clientWidth/2;let best=0,bd=1e9;
-  const atEnd=track.scrollLeft+track.clientWidth>=track.scrollWidth-8;
   items.forEach((it,k)=>{const r=it.getBoundingClientRect(),d=Math.abs(r.left+r.width/2-mid);if(d<bd){bd=d;best=k}});
-  if(track.scrollLeft<8)best=0;else if(atEnd&&innerWidth>700)best=items.length-1;
+  if(track.scrollLeft<8&&innerWidth>700)best=0;else if(track.scrollLeft+track.clientWidth>=track.scrollWidth-8&&innerWidth>700)best=items.length-1;
   [...dots.children].forEach((b,k)=>b.setAttribute('aria-current',k===best?'true':'false'));
 }
+track.addEventListener('scroll',arrows,{passive:true});addEventListener('resize',fit);
 $('#dots').onclick=e=>{const b=e.target.closest('[data-go]');if(b)track.querySelector(`.item[data-i="${b.dataset.go}"]`).scrollIntoView({behavior:reduce?'auto':'smooth',inline:innerWidth>700?'start':'center',block:'nearest'})};
-track.addEventListener('scroll',arrows,{passive:true});addEventListener('resize',arrows);
 const step=()=>{const it=track.querySelector('.item,.add-tile');return it?it.getBoundingClientRect().width+parseFloat(getComputedStyle(track).columnGap||20):300};
 $('#prev').onclick=()=>track.scrollBy({left:-step(),behavior:reduce?'auto':'smooth'});
 $('#next').onclick=()=>track.scrollBy({left:step(),behavior:reduce?'auto':'smooth'});
 
-/* ---------- flip engine ---------- */
+/* ---------- detail sheet: quick fade in/out ---------- */
 let open=null;
-function measure(html,W){
-  const m=document.createElement('div');m.className='face back';
-  m.style.cssText=`position:fixed;left:-9999px;top:0;bottom:auto;right:auto;width:${W}px;height:auto;transform:none;visibility:hidden;overflow:visible`;
-  m.innerHTML=html;document.body.append(m);const h=m.offsetHeight;m.remove();return h;
-}
-function flipOpen({from,frontHTML,frontClass='',backHTML,maxW,intro,onClose}){
-  const vw=innerWidth,vh=innerHeight,pad=vw<600?10:24;
-  const W=Math.min(maxW,vw-pad*2),H=Math.min(measure(backHTML,W),vh-pad*2);
-  const to={left:(vw-W)/2,top:(vh-H)/2,width:W,height:H};
+function openSheet({html,maxW,label,returnTo}){
   const scrim=document.createElement('div');scrim.className='scrim';
-  const fl=document.createElement('div');fl.className='flip';fl.setAttribute('role','dialog');fl.setAttribute('aria-modal','true');
-  fl.innerHTML=`<div class="face front ${frontClass}">${frontHTML}</div><div class="face back"><button class="x" aria-label="Lukk">${X}</button>${backHTML}</div>`;
-  document.body.append(scrim,fl);document.body.style.overflow='hidden';
-  const px=r=>({left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});
-  const mid=(a,b)=>({left:(a.left+b.left)/2,top:(a.top+b.top)/2-30,width:(a.width+b.width)/2,height:(a.height+b.height)/2});
-  const P='perspective(1800px) ';
-  const frames=(a)=>intro?[
-    {...px(a),transform:P+'rotateY(0deg) scale(.5)',opacity:0,offset:0},
-    {...px(a),transform:P+'rotateY(0deg) scale(1)',opacity:1,offset:.32},
-    {...px(a),transform:P+'rotateY(0deg) scale(1)',opacity:1,offset:.48},
-    {...px(mid(a,to)),transform:P+'rotateY(90deg) scale(1.04)',opacity:1,offset:.74},
-    {...px(to),transform:P+'rotateY(180deg) scale(1)',opacity:1,offset:1}
-  ]:[
-    {...px(a),transform:P+'rotateY(0deg)',offset:0},
-    {...px(mid(a,to)),transform:P+'rotateY(90deg) scale(1.06)',offset:.5},
-    {...px(to),transform:P+'rotateY(180deg)',offset:1}
-  ];
-  Object.assign(fl.style,px(to));
-  requestAnimationFrame(()=>scrim.classList.add('on'));
-  const done=()=>{fl.classList.add('open');fl.querySelector('.x').focus({preventScroll:true})};
-  if(reduce){done()}else{const an=fl.animate(frames(from()),{duration:intro?1500:780,easing:'cubic-bezier(.45,.05,.25,1)'});an.onfinish=done}
-  let closing=false;
-  const close=()=>{
-    if(closing)return;closing=true;fl.querySelector('.back').scrollTop=0;
-    scrim.classList.remove('on');
-    const fin=()=>{fl.remove();scrim.remove();document.body.style.overflow='';open=null;onClose&&onClose()};
-    if(reduce){fin();return}
-    fl.classList.remove('open');
-    const an=fl.animate(frames(from()).reverse().map((k,i,a)=>({...k,offset:1-k.offset})),{duration:intro?900:680,easing:'cubic-bezier(.45,.05,.25,1)',fill:'forwards'});
-    if(intro){an.effect.updateTiming({duration:700})}
-    an.onfinish=fin;
+  const box=document.createElement('div');box.className='sheet';box.style.maxWidth=maxW+'px';
+  box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-label',label);
+  box.innerHTML=`<button class="x" aria-label="${t('close')}">${X}</button>${html}`;
+  document.body.append(scrim,box);document.body.style.overflow='hidden';
+  requestAnimationFrame(()=>{scrim.classList.add('on');box.classList.add('on')});
+  box.querySelector('.x').focus({preventScroll:true});
+  const onKey=e=>{
+    if(e.key==='Escape')close();
+    if(e.key==='Tab'){const f=[...box.querySelectorAll('button,a[href]')];const a=f[0],z=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}
   };
-  scrim.onclick=close;
-  fl.addEventListener('click',e=>{if(e.target.closest('.x')||!e.target.closest('a,img.zoom,input,textarea')&&!getSelection().toString())close()});
+  addEventListener('keydown',onKey);
+  let closing=false;
+  const close=(instant)=>{
+    if(closing)return;closing=true;removeEventListener('keydown',onKey);
+    scrim.classList.remove('on');box.classList.remove('on');
+    const fin=()=>{box.remove();scrim.remove();document.body.style.overflow='';open=null;if(returnTo&&returnTo.isConnected)returnTo.focus({preventScroll:true})};
+    if(reduce||instant)fin();else setTimeout(fin,170);
+  };
+  scrim.onclick=()=>close();box.querySelector('.x').onclick=()=>close();
   open={close};
 }
-addEventListener('keydown',e=>{if(e.key==='Escape'&&open)open.close()});
 
 function filmBack(f){
-  const rows=[['År',f.year],['Varighet',f.duration],['Språk',f.lang],['Regi',f.regi],['Manus',f.manus],['Medvirkende',(f.cast||'').split(',').map(s=>s.trim()).filter(Boolean).join(',\n')]].filter(r=>r[1]);
+  const rows=[['year',f.year],['duration',f.duration],['lang',L(f,'lang')],['regi',f.regi],['manus',f.manus],['cast',(f.cast||'').split(',').map(s=>s.trim()).filter(Boolean).join(',\n')]].filter(r=>r[1]);
   return `<article class="info">
-    <h3>${esc(f.title)}</h3>${f.director?`<p class="by">En film av ${esc(f.director)}</p>`:''}
+    <h3 class="hand">${esc(f.title)}</h3>${f.director?`<p class="by hand">${t('by')} ${esc(f.director)}</p>`:''}
     <div class="cols" ${rows.length?'':'style="grid-template-columns:minmax(0,1fr)"'}>
-      ${rows.length?`<div class="meta"><dl>${rows.map(r=>`<div><dt>${r[0]}</dt><dd>${esc(r[1]).replace(/\n/g,'<br>')}</dd></div>`).join('')}</dl></div>`:''}
-      <div class="syn">${paras(f.synopsis)||'<p>Mer informasjon kommer.</p>'}${f.sample?'<p class="note">Eksempelinnhold — fylles ut i redigeringsmodus.</p>':''}</div>
+      ${rows.length?`<div class="meta"><dl>${rows.map(r=>`<div><dt class="hand">${t(r[0])}</dt><dd>${esc(r[1]).replace(/\n/g,'<br>')}</dd></div>`).join('')}</dl></div>`:''}
+      <div class="syn">${paras(L(f,'synopsis'))||`<p>${t('more')}</p>`}${f.sample?`<p class="note">${t('sample')}</p>`:''}</div>
     </div>
-    ${f.stills&&f.stills.length?`<div class="stills">${f.stills.map((s,k)=>`<img src="${esc(s)}" alt="Stillbilde ${k+1} fra ${esc(f.title)}" loading="lazy">`).join('')}</div>`:''}
+    ${f.stills&&f.stills.length?`<div class="stills">${f.stills.map((s,k)=>`<img src="${esc(s)}" alt="${t('still')} ${k+1} ${t('from')} ${esc(f.title)}" loading="lazy">`).join('')}</div>`:''}
   </article>`;
 }
 function openFilm(i){
-  const f=state.films[i];const item=track.querySelector(`.item[data-i="${i}"]`);const btn=item.querySelector('.poster');
-  item.classList.add('lifted');
-  flipOpen({from:()=>btn.getBoundingClientRect(),frontHTML:`<img src="${esc(f.poster)}" alt="">`,backHTML:filmBack(f),maxW:940,
-    onClose:()=>{item.classList.remove('lifted');btn.focus({preventScroll:true})}});
+  const f=state.films[i];
+  openSheet({html:filmBack(f),maxW:960,label:f.title,returnTo:track.querySelector(`.item[data-i="${i}"] .poster`)});
 }
 function bioBack(){
   const s=state.site;
   return `<div class="info bio">
-    <section><h3>Langsom Film</h3><h4>Hva vi gjør</h4>${paras(s.company)}</section>
-    <section><h3>${esc(s.name)}</h3><h4>Om meg</h4><div class="me">${s.portrait?`<img src="${esc(s.portrait)}" alt="Portrett av ${esc(s.name)}">`:'<div></div>'}<div>${paras(s.about)}</div></div></section>
+    <section><h3 class="hand">Langsom Film</h3><h4 class="hand">${t('what')}</h4>${paras(L(s,'company'))}</section>
+    <section><h3 class="hand">${esc(s.name)}</h3><h4 class="hand">${t('about')}</h4><div class="me">${s.portrait?`<img src="${esc(s.portrait)}" alt="${t('portrait')} ${esc(s.name)}">`:'<div></div>'}<div>${paras(L(s,'about'))}</div></div></section>
   </div>`;
 }
-$('#bioBtn').onclick=()=>{
-  const w=Math.min(380,innerWidth-40),h=w*0.6;
-  flipOpen({from:()=>({left:(innerWidth-w)/2,top:(innerHeight-h)/2,width:w,height:h}),frontClass:'bcard-front',
-    frontHTML:`${turtle}<b>LANGSOM FILM</b>`,backHTML:bioBack(),maxW:980,intro:true,onClose:()=>$('#bioBtn').focus()});
-};
+$('#bioBtn').onclick=()=>openSheet({html:bioBack(),maxW:1000,label:'Bio',returnTo:$('#bioBtn')});
 
 /* ---------- carousel clicks + admin tools ---------- */
 track.addEventListener('click',e=>{
@@ -454,6 +463,7 @@ document.querySelectorAll('dialog [data-close]').forEach(b=>b.onclick=()=>b.clos
 function readImg(file,max){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,max/Math.max(im.width,im.height));const c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.84))};im.onerror=rej;im.src=r.result};r.onerror=rej;r.readAsDataURL(file)})}
 
 /* film editor */
+const FF=['title','director','year','duration','lang','lang_en','regi','manus','cast','synopsis','synopsis_en'];
 let draft=null,editIdx=-1;const ff=$('#filmForm');
 function drawThumbs(){
   $('#posterPrev').innerHTML=draft.poster?`<div class="thumb"><img src="${esc(draft.poster)}" alt="Plakat"></div>`:'';
@@ -461,16 +471,16 @@ function drawThumbs(){
 }
 $('#stillPrev').onclick=e=>{const b=e.target.closest('[data-rm]');if(b){draft.stills.splice(+b.dataset.rm,1);drawThumbs()}};
 function editFilm(i){
-  editIdx=i;draft=i<0?{id:'f'+Date.now(),title:'',director:'',year:'',duration:'',lang:'',regi:'',manus:'',cast:'',synopsis:'',poster:'',stills:[]}:clone(state.films[i]);
+  editIdx=i;draft=i<0?{id:'f'+Date.now(),poster:'',stills:[]}:clone(state.films[i]);
   $('#filmDlgTitle').textContent=i<0?'Ny film':'Rediger «'+draft.title+'»';$('#filmErr').textContent='';
-  for(const k of['title','director','year','duration','lang','regi','manus','cast','synopsis'])ff.elements[k].value=draft[k]||'';
+  for(const k of FF)ff.elements[k].value=draft[k]||'';
   ff.elements.poster.value='';ff.elements.stills.value='';drawThumbs();$('#filmDlg').showModal();
 }
 ff.elements.poster.onchange=async e=>{const f=e.target.files[0];if(f){draft.poster=await readImg(f,1000);drawThumbs()}};
 ff.elements.stills.onchange=async e=>{for(const f of e.target.files)draft.stills.push(await readImg(f,1400));e.target.value='';drawThumbs()};
 ff.onsubmit=e=>{
   e.preventDefault();
-  for(const k of['title','director','year','duration','lang','regi','manus','cast','synopsis'])draft[k]=ff.elements[k].value.trim();
+  for(const k of FF)draft[k]=ff.elements[k].value.trim();
   if(!draft.poster){$('#filmErr').textContent='Legg til en plakat før du lagrer.';return}
   delete draft.sample;
   if(editIdx<0){state.films.push(draft);}else state.films[editIdx]=draft;
@@ -480,11 +490,12 @@ ff.onsubmit=e=>{
 };
 
 /* bio editor */
+const BF=['tagline','tagline_en','company','company_en','name','about','about_en','email','instagram'];
 const bf=$('#bioForm');let bdraft=null;
-$('#editBio').onclick=()=>{bdraft=clone(state.site);for(const k of['tagline','company','name','about','email','instagram'])bf.elements[k].value=bdraft[k]||'';bf.elements.portrait.value='';
+$('#editBio').onclick=()=>{bdraft=clone(state.site);for(const k of BF)bf.elements[k].value=bdraft[k]||'';bf.elements.portrait.value='';
   $('#portraitPrev').innerHTML=bdraft.portrait?`<div class="thumb"><img src="${esc(bdraft.portrait)}" alt="Portrett"></div>`:'';$('#bioDlg').showModal()};
 bf.elements.portrait.onchange=async e=>{const f=e.target.files[0];if(f){bdraft.portrait=await readImg(f,800);$('#portraitPrev').innerHTML=`<div class="thumb"><img src="${bdraft.portrait}" alt="Portrett"></div>`}};
-bf.onsubmit=e=>{e.preventDefault();for(const k of['tagline','company','name','about','email','instagram'])bdraft[k]=bf.elements[k].value.trim();state.site=bdraft;$('#bioDlg').close();commit();toast('Bio er oppdatert')};
+bf.onsubmit=e=>{e.preventDefault();for(const k of BF)bdraft[k]=bf.elements[k].value.trim();state.site=bdraft;$('#bioDlg').close();commit();toast('Bio er oppdatert')};
 
 /* login */
 $('#loginLink').onclick=()=>$('#loginDlg').showModal();
@@ -492,7 +503,7 @@ $('#loginForm').onsubmit=e=>{e.preventDefault();admin=true;try{sessionStorage.se
 $('#logout').onclick=()=>{admin=false;try{sessionStorage.removeItem(KEY+'-admin')}catch(e){}render()};
 $('#addFilm').onclick=()=>editFilm(-1);
 
-render();
+applyLang();
 }
 </script>
 </body>
