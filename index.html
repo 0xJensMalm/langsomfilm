@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <link rel="preload" href="assets/fonts/HenriksHand-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 /* VOICE: quiet, handmade, unhurried — the posters do the talking.
    COLOUR and TYPE: pale sage paper, dark forest-green ink; Henrik's hand for every label and title,
@@ -20,7 +20,7 @@
    LAYOUT: header (logo · tagline · Bio · language), a large centred poster carousel, footer (mail · turtle · Instagram). */
 @font-face{font-family:"Henriks Hand";src:url("assets/fonts/HenriksHand-Regular.ttf") format("truetype");font-display:swap}
 :root{color-scheme:light;--bg:#e9ece3;--paper:#f4f5ef;--ink:#1d3a2a;--soft:#5a6b5f;--line:rgba(29,58,42,.4);
-  --hand:"Henriks Hand","Amatic SC","Bradley Hand",cursive; /* Amatic SC fills glyphs Henrik's hand lacks: quotes, dashes, é ü ö ä, ( ) & / @ */--sans:Montserrat,system-ui,sans-serif}
+  --hand:"Henriks Hand","Amatic SC","Bradley Hand",cursive; /* Amatic SC fills glyphs Henrik's hand lacks: quotes, dashes, é ü ö ä, ( ) & / @ */--sans:Montserrat,system-ui,sans-serif;--read:Newsreader,Georgia,serif}
 *{box-sizing:border-box;min-width:0}
 html,body{margin:0}
 body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);font-weight:500;overflow-x:clip;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
@@ -94,15 +94,15 @@ footer{padding:clamp(20px,3vw,40px) 0 calc(18px + env(safe-area-inset-bottom));t
 .cols{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:clamp(20px,3vw,40px);margin-top:clamp(18px,2.6vw,30px)}
 .meta{border-right:1.5px solid var(--line);padding-right:clamp(16px,2.4vw,30px)}
 .meta dl{margin:0}
-.meta dt{font-size:14px;color:var(--soft);margin-top:14px}
+.meta dt{font-size:15px;color:var(--soft);margin-top:14px}
 .meta dl>div:first-child dt{margin-top:0}
-/* card body text in Henrik's hand: caps-only, so a touch larger, airier spacing, shorter lines */
-.info{font-family:var(--hand);font-weight:400;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(17px,1.3vw,19px);line-height:1.65;word-spacing:.12em}
-.meta dd{margin:2px 0 0;font-size:17px;line-height:1.4}
-.syn p{margin:0 0 1.1em;max-width:54ch}
+/* card reading text: Newsreader, a quiet book serif beside Henrik's hand-lettered titles and labels */
+.info{font-family:var(--read);font-weight:400;font-size:clamp(17px,1.25vw,19px);line-height:1.6;font-optical-sizing:auto}
+.meta dd{margin:2px 0 0;font-size:17px;font-weight:500;line-height:1.35}
+.syn p{margin:0 0 1em;max-width:60ch;text-wrap:pretty}
 .stills{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,440px));gap:12px;margin-top:clamp(12px,2vw,22px)}
 .stills img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-radius:2px}
-.note{font-size:15px;color:var(--soft);margin:14px 0 0}
+.note{font-size:15px;font-style:italic;color:var(--soft);margin:14px 0 0}
 .bio{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,44px)}
 .bio>section+section{border-left:1.5px solid var(--line);padding-left:clamp(20px,3vw,44px)}
 .bio h3{font-size:clamp(28px,3.2vw,40px);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:9px;padding-right:44px}
