@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Tab icon: the Langsom Film turtle, simplified with heavier lines so it reads at 16px -->
+  <rect width="64" height="64" rx="14" fill="#e9ece3"/>
+  <g transform="translate(-0.8 16.5) scale(.53)" fill="#e9ece3" stroke="#1d3a2a" stroke-width="7.5" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="22" y="36" width="16" height="20" rx="8"/>
+    <rect x="76" y="36" width="16" height="20" rx="8"/>
+    <path d="M92 38 C96 22 118 20 118 34 C118 44 106 47 96 45"/>
+    <path d="M8 47 C10 12 38 4 58 4 C82 4 106 14 108 47Z"/>
+  </g>
+</svg>
