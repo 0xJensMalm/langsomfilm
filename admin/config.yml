@@ -1,0 +1,87 @@
+# Sveltia CMS — https://sveltiacms.app
+# Every save is a commit to main; GitHub Pages rebuilds the site in about a minute.
+backend:
+  name: github
+  repo: 0xJensMalm/langsomfilm
+  branch: main
+  # Sign in with a GitHub personal access token for now. To get a "Sign in with GitHub" button,
+  # deploy sveltia-cms-auth (Cloudflare Worker), add base_url + app_id here and allow oauth.
+  auth_methods: [token]
+  commit_messages:
+    update: "Oppdater {{collection}} «{{slug}}» (via CMS)"
+    uploadMedia: "Last opp {{path}} (via CMS)"
+    deleteMedia: "Slett {{path}} (via CMS)"
+
+site_url: https://0xjensmalm.github.io/langsomfilm/
+display_url: https://0xjensmalm.github.io/langsomfilm/
+
+# Uploaded images go in assets/uploads and are referenced relative to the site root,
+# so the paths keep working when the site moves to langsomfilm.no.
+media_folder: assets/uploads
+public_folder: assets/uploads
+
+# Shrink and convert uploads to WebP so the site stays fast whatever size is uploaded.
+media_libraries:
+  default:
+    config:
+      max_file_size: 26214400
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2000
+          height: 2000
+
+collections:
+  - name: innhold
+    label: Innhold
+    files:
+      - name: films
+        label: Filmer
+        file: content/films.json
+        format: json
+        fields:
+          - name: films
+            label: Filmer
+            label_singular: Film
+            widget: list
+            hint: Rekkefølgen her er rekkefølgen i karusellen. Dra for å endre.
+            summary: "{{fields.title}}"
+            collapsed: true
+            fields:
+              - { name: title, label: Tittel, widget: string }
+              - { name: poster, label: Plakat, widget: image, hint: "Stående, helst 1000 × 1414 px (A-format). Andre formater beskjæres litt." }
+              - { name: director, label: En film av, widget: string, required: false }
+              - { name: year, label: År, widget: string, required: false }
+              - { name: duration, label: Varighet, widget: string, required: false, hint: "F.eks. 117 min" }
+              - { name: lang, label: Språk, widget: string, required: false }
+              - { name: lang_en, label: Språk (engelsk), widget: string, required: false, hint: "F.eks. Norwegian, English" }
+              - { name: regi, label: Regi, widget: string, required: false }
+              - { name: manus, label: Manus, widget: string, required: false }
+              - { name: cast, label: Medvirkende, widget: string, required: false, hint: "Skill navn med komma" }
+              - { name: synopsis, label: Synopsis, widget: text, required: false, hint: "Tom linje gir nytt avsnitt" }
+              - { name: synopsis_en, label: Synopsis (engelsk), widget: text, required: false, hint: "Valgfritt — tomt felt viser norsk tekst" }
+              - name: stills
+                label: Stillbilder
+                label_singular: Stillbilde
+                widget: list
+                required: false
+                hint: "Liggende, helst 16:10 (f.eks. 1600 × 1000 px)"
+                field: { name: image, label: Bilde, widget: image }
+
+      - name: site
+        label: Bio og kontakt
+        file: content/site.json
+        format: json
+        fields:
+          - { name: tagline, label: Tekst i toppen, widget: string }
+          - { name: tagline_en, label: Tekst i toppen (engelsk), widget: string, required: false }
+          - { name: company, label: Langsom Film — hva vi gjør, widget: text }
+          - { name: company_en, label: What we do (engelsk), widget: text, required: false }
+          - { name: name, label: Navn, widget: string }
+          - { name: portrait, label: Portrett, widget: image, required: false, hint: "Stående 3:4, f.eks. 600 × 800 px" }
+          - { name: about, label: Om meg, widget: text }
+          - { name: about_en, label: About me (engelsk), widget: text, required: false }
+          - { name: email, label: E-post, widget: string }
+          - { name: instagram, label: Instagram-lenke, widget: string, required: false }

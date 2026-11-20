@@ -76,7 +76,7 @@ footer{padding:clamp(20px,3vw,40px) 0 calc(18px + env(safe-area-inset-bottom));t
 .contact .tl{width:76px;height:auto;display:block}
 .contact .ig{display:grid;place-items:center;width:44px;height:44px}
 .contact .ig svg{width:34px;height:34px}
-.login-link{display:block;margin:14px auto 0;background:none;border:0;font-size:13px;color:var(--soft);padding:8px}
+.login-link{display:inline-block;margin:14px auto 0;text-decoration:none;background:none;border:0;font-size:13px;color:var(--soft);padding:8px}
 .login-link:hover{color:var(--ink);text-decoration:underline}
 
 /* detail sheet (film + bio) — quick fade, no 3D */
@@ -111,43 +111,6 @@ footer{padding:clamp(20px,3vw,40px) 0 calc(18px + env(safe-area-inset-bottom));t
 .me{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:18px;align-items:start}
 .me img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;background:#d4d9cd}
 
-/* admin */
-.adminbar{position:sticky;top:0;z-index:15;background:var(--ink);color:#fff;font-weight:600;font-size:14px}
-.adminbar .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding-block:8px}
-.adminbar .wrap>span{margin-right:auto}
-.abtn{border:0;border-radius:6px;padding:10px 14px;min-height:44px;background:var(--ink);color:#fff;font-weight:700;font-size:14px}
-.adminbar .abtn{background:var(--bg);color:var(--ink)}
-.abtn.ghost{background:transparent;color:inherit;border:2px solid currentColor}
-.adminbar .abtn.ghost{color:#fff;background:transparent}
-.tools{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;justify-content:center}
-.tools button{border:1px solid var(--line);background:var(--paper);border-radius:6px;min-height:40px;min-width:40px;padding:6px 10px;font-size:13px;font-weight:700}
-.tools button:hover{background:#fff}
-.tools .del.armed{background:#a3262a;border-color:#a3262a;color:#fff}
-.add-tile{flex:0 0 var(--iw);aspect-ratio:436/618;border:2px dashed var(--line);border-radius:4px;background:rgba(255,255,255,.3);display:grid;place-items:center;align-content:center;gap:8px;font-weight:700;font-size:17px}
-.add-tile span{font-size:46px;line-height:1}
-dialog{border:0;padding:0;border-radius:10px;width:min(720px,calc(100vw - 24px));max-height:calc(100vh - 24px);background:var(--paper);color:var(--ink);box-shadow:0 40px 90px -30px rgba(20,40,28,.6)}
-dialog::backdrop{background:rgba(24,40,30,.45)}
-dialog form{padding:clamp(18px,3vw,30px)}
-dialog h2{margin:0 0 4px;font-weight:700;font-size:26px}
-dialog .sub{margin:0 0 18px;color:var(--soft);font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px}
-.full{grid-column:1/-1}
-.sec{grid-column:1/-1;margin:10px 0 -4px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);border-top:1px solid var(--line);padding-top:12px}
-label{display:grid;gap:4px;font-size:13px;font-weight:700;color:#33473b}
-input,textarea{font:16px/1.4 var(--sans);padding:10px 12px;border:1.5px solid #c3cbbf;border-radius:6px;background:#fff;color:var(--ink);width:100%}
-textarea{min-height:120px;resize:vertical}
-input:focus,textarea:focus{outline:3px solid #4d7a5c;outline-offset:0;border-color:#4d7a5c}
-.hint{font-weight:500;color:var(--soft)}
-.thumbs{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-.thumb{position:relative}
-.thumb img{height:80px;border-radius:4px;display:block}
-.thumb button{position:absolute;top:-8px;right:-8px;width:28px;height:28px;border-radius:50%;border:0;background:#a3262a;color:#fff;font-weight:900;line-height:1}
-.actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;flex-wrap:wrap}
-.err{color:#a3262a;font-weight:700;font-size:14px;min-height:1.2em;margin:8px 0 0}
-.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(30px);opacity:0;background:var(--ink);color:#fff;padding:10px 12px 10px 18px;border-radius:8px;display:flex;gap:14px;align-items:center;z-index:40;transition:.2s;font-size:14px;font-weight:600;max-width:calc(100vw - 24px)}
-.toast.on{opacity:1;transform:translateX(-50%)}
-.toast button{background:var(--bg);color:var(--ink);border:0;border-radius:6px;padding:8px 12px;font-weight:700;min-height:40px}
-
 @media(max-width:960px){
   .hd{grid-template-columns:minmax(0,1fr) auto auto;row-gap:10px}
   .tag{grid-column:1/-1;grid-row:2;border-left:0!important;padding-left:0!important;border-top:1.5px solid var(--line);padding-top:12px}
@@ -164,7 +127,7 @@ input:focus,textarea:focus{outline:3px solid #4d7a5c;outline-offset:0;border-col
   /* poster sized so poster + title fit in the visible viewport, under the header */
   .car{--iw:clamp(180px,min(74vw,calc((100svh - 300px) * .7055)),360px)}
   .track{scroll-padding-inline:0;padding-inline:calc((100% - var(--iw))/2);padding-top:10px}
-  .item,.add-tile{scroll-snap-align:center}
+  .item{scroll-snap-align:center}
   .item h2{margin-top:12px;font-size:18px}
   .dots{margin-top:6px}
   .arrow{display:none!important}
@@ -179,21 +142,13 @@ input:focus,textarea:focus{outline:3px solid #4d7a5c;outline-offset:0;border-col
   .bio{grid-template-columns:minmax(0,1fr)}
   .bio>section+section{border-left:0;padding-left:0;border-top:1.5px solid var(--line);padding-top:20px}
   .me{grid-template-columns:minmax(0,120px) minmax(0,1fr)}
-  .grid{grid-template-columns:minmax(0,1fr)}
   .x{top:8px;margin:8px 8px -52px 0}
   .info{padding-top:20px}
 }
-@media(prefers-reduced-motion:reduce){.poster,.scrim,.sheet,.toast{transition:none}}
+@media(prefers-reduced-motion:reduce){.poster,.scrim,.sheet{transition:none}}
 </style>
 </head>
 <body>
-<div class="adminbar" id="adminbar" hidden>
-  <div class="wrap"><span>Redigeringsmodus — endringer lagres i denne nettleseren (demo)</span>
-    <button class="abtn" id="addFilm">+ Ny film</button>
-    <button class="abtn" id="editBio">Rediger bio</button>
-    <button class="abtn ghost" id="logout">Logg ut</button></div>
-</div>
-
 <header>
   <div class="wrap hd">
     <a class="logo" href="./" aria-label="Langsom Film"><svg viewBox="0 0 120 64" aria-hidden="true"><use href="#tl"/></svg><span>Langsom Film</span></a>
@@ -219,7 +174,7 @@ input:focus,textarea:focus{outline:3px solid #4d7a5c;outline-offset:0;border-col
     <span aria-hidden="true"><svg class="tl" viewBox="0 0 120 64"><use href="#tl"/></svg></span>
     <span><a class="ig" id="igLink" href="https://www.instagram.com/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a></span>
   </div>
-  <button class="login-link" id="loginLink" data-t="login">Logg inn</button>
+  <a class="login-link" href="admin/" data-t="login">Logg inn</a>
 </footer>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -238,87 +193,9 @@ input:focus,textarea:focus{outline:3px solid #4d7a5c;outline-offset:0;border-col
   </defs>
 </svg>
 
-<dialog id="filmDlg"><form id="filmForm" method="dialog">
-  <h2 id="filmDlgTitle">Ny film</h2>
-  <p class="sub">Alt her vises når man trykker på plakaten. Engelske felt er valgfrie — tomme felt viser norsk tekst.</p>
-  <div class="grid">
-    <label class="full">Tittel<input name="title" required></label>
-    <label>En film av<input name="director"></label>
-    <label>År<input name="year" inputmode="numeric"></label>
-    <label>Varighet<input name="duration" placeholder="117 min"></label>
-    <label>Språk<input name="lang"></label>
-    <label>Regi<input name="regi"></label>
-    <label>Manus<input name="manus"></label>
-    <label class="full"><span>Medvirkende <span class="hint">— skill med komma</span></span><input name="cast"></label>
-    <label class="full"><span>Synopsis <span class="hint">— tom linje gir nytt avsnitt</span></span><textarea name="synopsis"></textarea></label>
-    <p class="sec">English</p>
-    <label class="full">Language<input name="lang_en" placeholder="Norwegian, English"></label>
-    <label class="full">Synopsis (English)<textarea name="synopsis_en"></textarea></label>
-    <p class="sec">Bilder</p>
-    <label><span>Plakat <span class="hint">(1000 × 1414 px)</span></span><input type="file" name="poster" accept="image/*"><div class="thumbs" id="posterPrev"></div></label>
-    <label><span>Stillbilder <span class="hint">(16:10, ett eller flere)</span></span><input type="file" name="stills" accept="image/*" multiple><div class="thumbs" id="stillPrev"></div></label>
-  </div>
-  <p class="err" id="filmErr"></p>
-  <div class="actions"><button type="button" class="abtn ghost" data-close>Avbryt</button><button class="abtn" value="save">Lagre</button></div>
-</form></dialog>
-
-<dialog id="bioDlg"><form id="bioForm" method="dialog">
-  <h2>Rediger bio</h2>
-  <p class="sub">Teksten i toppen, bio og kontaktinfo. Engelske felt er valgfrie.</p>
-  <div class="grid">
-    <label class="full">Tekst i toppen<textarea name="tagline" style="min-height:64px"></textarea></label>
-    <label class="full">Langsom Film — hva vi gjør<textarea name="company"></textarea></label>
-    <label>Navn<input name="name"></label>
-    <label>Portrett<input type="file" name="portrait" accept="image/*"><div class="thumbs" id="portraitPrev"></div></label>
-    <label class="full">Om meg<textarea name="about"></textarea></label>
-    <p class="sec">English</p>
-    <label class="full">Tagline<textarea name="tagline_en" style="min-height:64px"></textarea></label>
-    <label class="full">What we do<textarea name="company_en"></textarea></label>
-    <label class="full">About me<textarea name="about_en"></textarea></label>
-    <p class="sec">Kontakt</p>
-    <label>E-post<input name="email" type="email"></label>
-    <label>Instagram-lenke<input name="instagram" type="url"></label>
-  </div>
-  <div class="actions"><button type="button" class="abtn ghost" data-close>Avbryt</button><button class="abtn" value="save">Lagre</button></div>
-</form></dialog>
-
-<dialog id="loginDlg"><form id="loginForm" method="dialog">
-  <h2>Logg inn</h2>
-  <p class="sub">Demo: brukernavn og passord er fylt ut — trykk «Logg inn». På den ekte siden kobles dette til en ordentlig innlogging.</p>
-  <div class="grid">
-    <label class="full">E-post<input name="email" type="email" autocomplete="username" value="adrian@langsomfilm.no"></label>
-    <label class="full">Passord<input name="pw" type="password" autocomplete="current-password" value="langsomfilm" required></label>
-  </div>
-  <div class="actions"><button type="button" class="abtn ghost" data-close>Avbryt</button><button class="abtn" value="ok">Logg inn</button></div>
-</form></dialog>
-
-<div class="toast" id="toast" role="status"><span id="toastMsg"></span><button id="toastUndo">Angre</button></div>
-
 <script>
 {
-const KEY='langsomfilm-demo-v2';
-const DEFAULT={
-  site:{
-    tagline:'Et norsk uavhengig produksjonsselskap basert i Oslo.',
-    tagline_en:'A Norwegian independent production company based in Oslo.',
-    company:'Langsom Film er et norsk produksjonsselskap dedikert til karakterdrevne filmer som utforsker livets store spørsmål gjennom vanlige mennesker.\n\nVi utvikler og produserer fiksjon og dokumentar for kino, TV og strømmetjenester, med en tro på at de sterkeste historiene oppstår i møtet mellom det personlige og det universelle.',
-    company_en:'Langsom Film is a Norwegian production company dedicated to character-driven films that explore life’s big questions through ordinary people.\n\nWe develop and produce fiction and documentary for cinema, TV and streaming, believing that the strongest stories arise where the personal meets the universal.',
-    name:'Adrian Axel',
-    about:'Jeg er regissør og produsent, og drives av en nysgjerrighet på mennesker, relasjoner og de små, avgjørende valgene som former livene våre.\n\nJeg liker å jobbe tett med karakterer over tid, og er opptatt av å lage filmer som er både emosjonelt ærlige og visuelt sterke.',
-    about_en:'I am a director and producer, driven by curiosity about people, relationships and the small, decisive choices that shape our lives.\n\nI like to work closely with characters over time, and I care about making films that are both emotionally honest and visually striking.',
-    portrait:'assets/adrian.jpg',email:'contact@langsomfilm.no',instagram:'https://www.instagram.com/'
-  },
-  films:[
-    {id:'tingenes',title:'Tingenes tilstand',director:'',year:'',duration:'',lang:'Norsk',lang_en:'Norwegian',regi:'',manus:'',cast:'',
-     synopsis:'En originalserie fra NRK.',synopsis_en:'An original series from NRK.',sample:true,poster:'assets/tingenes.jpg',stills:[]},
-    {id:'bebudelsen',title:'Bebudelsen',director:'Anja Petkovic',year:'',duration:'',lang:'',regi:'Anja Petkovic',manus:'',cast:'Tobias Aksdal, Sunniva Dumont Nordahl, Ketil Kern',
-     synopsis:'',sample:true,poster:'assets/bebudelsen.jpg',stills:[]},
-    {id:'yrkesfag',title:'Yrkesfag',director:'Gabriel Bognaschi',year:'2026',duration:'117 min',lang:'Norsk, engelsk, spansk, tysk',lang_en:'Norwegian, English, Spanish, German',regi:'Gabriel Bognaschi',manus:'Gabriel Bognaschi',cast:'Renate Reinsve, Helene Bjørneby, Lillian Müller, Numan Acar',
-     synopsis:'Halvsøstrene Diana og Lily vokste opp som de eneste fastboende barna i en charterresort på Gran Canaria, der deres grenseløse mor Vera var Star Tour-vertinne.\n\n25 år senere har de begge stor avstand til øya og hverandre; Diana som barnehageansatt i Askim og Lily som pensjonert modell og utelivsløve i Hamburgs kunstscene.\n\nNå må de returnere til øya for å håndtere sin mors plutselige død i de kanariske fjellene. Gjenforeningen byr på en halsbrekkende reise i fortiden og inn mot turistøyas skjulte hjerte.',
-     synopsis_en:'Half-sisters Diana and Lily grew up as the only resident children at a charter resort on Gran Canaria, where their boundless mother Vera worked as a Star Tour rep.\n\n25 years later, both are far removed from the island and from each other: Diana works at a kindergarten in Askim, while Lily is a retired model and fixture of Hamburg’s art-scene nightlife.\n\nNow they must return to the island to deal with their mother’s sudden death in the Canarian mountains. The reunion becomes a breakneck journey into the past and towards the hidden heart of the tourist island.',
-     poster:'assets/yrkesfag.jpg',stills:['assets/still1.jpg','assets/still2.jpg']}
-  ]
-};
+/* Content lives in content/films.json and content/site.json, edited through /admin (Sveltia CMS). */
 const T={
   no:{films:'Filmer',prev:'Forrige',next:'Neste',close:'Lukk',login:'Logg inn',show:'Vis detaljer om',pick:'Velg film',
       year:'År',duration:'Varighet',lang:'Språk',regi:'Regi',manus:'Manus',cast:'Medvirkende',by:'En film av',
@@ -329,15 +206,11 @@ const T={
       more:'More information coming soon.',sample:'Sample content — to be filled in.',what:'What we do',about:'About me',
       poster:'Poster',still:'Still',from:'from',portrait:'Portrait of',empty:'No films yet.'}
 };
-const clone=o=>JSON.parse(JSON.stringify(o));
-let state=clone(DEFAULT), admin=false, lastDeleted=null, lang='no';
-try{const s=localStorage.getItem(KEY);if(s)state=JSON.parse(s)}catch(e){}
-try{admin=sessionStorage.getItem(KEY+'-admin')==='1'}catch(e){}
+let state={site:{},films:[]}, lang='no';
 try{lang=localStorage.getItem('langsomfilm-lang')||(/^(nb|nn|no)\b/i.test(navigator.language)?'no':'en')}catch(e){}
 if(!T[lang])lang='no';
 const t=k=>T[lang][k];
 const L=(o,k)=>(lang==='en'&&o[k+'_en'])?o[k+'_en']:(o[k]||'');
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state));return true}catch(e){return false}};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const paras=s=>String(s||'').split(/\n\s*\n/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join('');
@@ -359,17 +232,14 @@ const track=$('#track');
 function render(){
   const s=state.site;
   $('#tagline').textContent=L(s,'tagline');
-  $('#mail').textContent=s.email||'';$('#mail').href='mailto:'+s.email;
+  if(s.email){$('#mail').textContent=s.email;$('#mail').href='mailto:'+s.email}
   $('#igLink').href=s.instagram||'https://www.instagram.com/';
-  $('#adminbar').hidden=!admin;$('#loginLink').hidden=admin;
   $('#dots').innerHTML='';
   track.innerHTML=state.films.map((f,i)=>`
     <figure class="item" data-i="${i}">
       <button class="poster" data-open="${i}" aria-label="${t('show')} ${esc(f.title)}"><img src="${esc(f.poster)}" alt="${t('poster')}: ${esc(f.title)}" loading="lazy"></button>
       <h2 class="hand">${esc(f.title)}</h2>
-      ${admin?`<div class="tools"><button data-edit="${i}">Rediger</button><button data-left="${i}" aria-label="Flytt til venstre" ${i?'':'disabled'}>←</button><button data-right="${i}" aria-label="Flytt til høyre" ${i<state.films.length-1?'':'disabled'}>→</button><button class="del" data-del="${i}">Slett</button></div>`:''}
-    </figure>`).join('')+(admin?`<button class="add-tile" data-add><span>+</span>Legg til film</button>`:'')+
-    (!state.films.length&&!admin?`<p class="empty">${t('empty')}</p>`:'');
+    </figure>`).join('')+(state.loaded&&!state.films.length?`<p class="empty">${t('empty')}</p>`:'');
   fit();
 }
 /* centre the row when every poster fits on screen */
@@ -388,7 +258,7 @@ function arrows(){
 }
 track.addEventListener('scroll',arrows,{passive:true});addEventListener('resize',fit);
 $('#dots').onclick=e=>{const b=e.target.closest('[data-go]');if(b)track.querySelector(`.item[data-i="${b.dataset.go}"]`).scrollIntoView({behavior:reduce?'auto':'smooth',inline:innerWidth>700?'start':'center',block:'nearest'})};
-const step=()=>{const it=track.querySelector('.item,.add-tile');return it?it.getBoundingClientRect().width+parseFloat(getComputedStyle(track).columnGap||20):300};
+const step=()=>{const it=track.querySelector('.item');return it?it.getBoundingClientRect().width+parseFloat(getComputedStyle(track).columnGap||20):300};
 $('#prev').onclick=()=>track.scrollBy({left:-step(),behavior:reduce?'auto':'smooth'});
 $('#next').onclick=()=>track.scrollBy({left:step(),behavior:reduce?'auto':'smooth'});
 
@@ -443,68 +313,14 @@ function bioBack(){
 }
 $('#bioBtn').onclick=()=>openSheet({html:bioBack(),maxW:1000,label:'Bio',returnTo:$('#bioBtn')});
 
-/* ---------- carousel clicks + admin tools ---------- */
-track.addEventListener('click',e=>{
-  const b=e.target.closest('button');if(!b)return;const d=b.dataset;
-  if(d.open!=null)openFilm(+d.open);
-  else if(d.edit!=null)editFilm(+d.edit);
-  else if(d.add!=null)editFilm(-1);
-  else if(d.left!=null||d.right!=null){const i=+(d.left??d.right),j=d.left!=null?i-1:i+1;[state.films[i],state.films[j]]=[state.films[j],state.films[i]];commit()}
-  else if(d.del!=null){
-    if(!b.classList.contains('armed')){b.classList.add('armed');b.textContent='Bekreft';setTimeout(()=>{if(b.isConnected){b.classList.remove('armed');b.textContent='Slett'}},3000);return}
-    const i=+d.del;lastDeleted={f:state.films[i],i};state.films.splice(i,1);commit();toast(`«${lastDeleted.f.title}» er slettet`,true);
-  }
-});
-function commit(){const ok=save();render();if(!ok)toast('Lagret bare midlertidig — nettleserens lagringsplass er full');}
-let tt;function toast(msg,undo){$('#toastMsg').textContent=msg;$('#toastUndo').hidden=!undo;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),6000)}
-$('#toastUndo').onclick=()=>{if(lastDeleted){state.films.splice(lastDeleted.i,0,lastDeleted.f);lastDeleted=null;commit()}$('#toast').classList.remove('on')};
+/* ---------- carousel clicks ---------- */
+track.addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)openFilm(+b.dataset.open)});
 
-document.querySelectorAll('dialog [data-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
-
-/* image upload → downscaled data URL */
-function readImg(file,max){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,max/Math.max(im.width,im.height));const c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.84))};im.onerror=rej;im.src=r.result};r.onerror=rej;r.readAsDataURL(file)})}
-
-/* film editor */
-const FF=['title','director','year','duration','lang','lang_en','regi','manus','cast','synopsis','synopsis_en'];
-let draft=null,editIdx=-1;const ff=$('#filmForm');
-function drawThumbs(){
-  $('#posterPrev').innerHTML=draft.poster?`<div class="thumb"><img src="${esc(draft.poster)}" alt="Plakat"></div>`:'';
-  $('#stillPrev').innerHTML=draft.stills.map((s,k)=>`<div class="thumb"><img src="${esc(s)}" alt="Stillbilde ${k+1}"><button type="button" data-rm="${k}" aria-label="Fjern stillbilde ${k+1}">×</button></div>`).join('');
-}
-$('#stillPrev').onclick=e=>{const b=e.target.closest('[data-rm]');if(b){draft.stills.splice(+b.dataset.rm,1);drawThumbs()}};
-function editFilm(i){
-  editIdx=i;draft=i<0?{id:'f'+Date.now(),poster:'',stills:[]}:clone(state.films[i]);
-  $('#filmDlgTitle').textContent=i<0?'Ny film':'Rediger «'+draft.title+'»';$('#filmErr').textContent='';
-  for(const k of FF)ff.elements[k].value=draft[k]||'';
-  ff.elements.poster.value='';ff.elements.stills.value='';drawThumbs();$('#filmDlg').showModal();
-}
-ff.elements.poster.onchange=async e=>{const f=e.target.files[0];if(f){draft.poster=await readImg(f,1000);drawThumbs()}};
-ff.elements.stills.onchange=async e=>{for(const f of e.target.files)draft.stills.push(await readImg(f,1400));e.target.value='';drawThumbs()};
-ff.onsubmit=e=>{
-  e.preventDefault();
-  for(const k of FF)draft[k]=ff.elements[k].value.trim();
-  if(!draft.poster){$('#filmErr').textContent='Legg til en plakat før du lagrer.';return}
-  delete draft.sample;
-  if(editIdx<0){state.films.push(draft);}else state.films[editIdx]=draft;
-  $('#filmDlg').close();commit();
-  if(editIdx<0)requestAnimationFrame(()=>track.scrollTo({left:track.scrollWidth,behavior:reduce?'auto':'smooth'}));
-  toast(editIdx<0?`«${draft.title}» er lagt til`:'Endringene er lagret');
-};
-
-/* bio editor */
-const BF=['tagline','tagline_en','company','company_en','name','about','about_en','email','instagram'];
-const bf=$('#bioForm');let bdraft=null;
-$('#editBio').onclick=()=>{bdraft=clone(state.site);for(const k of BF)bf.elements[k].value=bdraft[k]||'';bf.elements.portrait.value='';
-  $('#portraitPrev').innerHTML=bdraft.portrait?`<div class="thumb"><img src="${esc(bdraft.portrait)}" alt="Portrett"></div>`:'';$('#bioDlg').showModal()};
-bf.elements.portrait.onchange=async e=>{const f=e.target.files[0];if(f){bdraft.portrait=await readImg(f,800);$('#portraitPrev').innerHTML=`<div class="thumb"><img src="${bdraft.portrait}" alt="Portrett"></div>`}};
-bf.onsubmit=e=>{e.preventDefault();for(const k of BF)bdraft[k]=bf.elements[k].value.trim();state.site=bdraft;$('#bioDlg').close();commit();toast('Bio er oppdatert')};
-
-/* login */
-$('#loginLink').onclick=()=>$('#loginDlg').showModal();
-$('#loginForm').onsubmit=e=>{e.preventDefault();admin=true;try{sessionStorage.setItem(KEY+'-admin','1')}catch(e){}$('#loginDlg').close();render();toast('Du er logget inn')};
-$('#logout').onclick=()=>{admin=false;try{sessionStorage.removeItem(KEY+'-admin')}catch(e){}render()};
-$('#addFilm').onclick=()=>editFilm(-1);
-
+/* ---------- load content ---------- */
+const get=u=>fetch(u,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(u+' '+r.status);return r.json()});
+Promise.all([get('content/site.json'),get('content/films.json')])
+  .then(([site,f])=>{state={site,films:(f.films||[]).filter(x=>x&&x.title&&x.poster),loaded:true};render()})
+  .catch(err=>{console.error(err);track.innerHTML='<p class="empty">Kunne ikke laste innholdet. Prøv å laste siden på nytt.</p>'});
 applyLang();
 }
 </script>
