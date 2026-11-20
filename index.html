@@ -17,7 +17,8 @@
 /* VOICE: quiet, handmade, unhurried — the posters do the talking.
    COLOUR and TYPE: pale sage paper, dark forest-green ink; Henrik's hand for every label and title,
    a plain sans for longer reading text.
-   LAYOUT: header (logo · tagline · Bio · language), a large centred poster carousel, footer (mail · turtle · Instagram). */
+   LAYOUT: header (logo | mail · Instagram · Bio · language), poster carousel sized to the viewport, footer (tagline | editor link).
+   The whole page fits one screen: poster size is derived from the viewport height. */
 @font-face{font-family:"Henriks Hand";src:url("assets/fonts/HenriksHand-Regular.ttf") format("truetype");font-display:swap}
 :root{color-scheme:light;--bg:#e9ece3;--paper:#f4f5ef;--ink:#1d3a2a;--soft:#5a6b5f;--line:rgba(29,58,42,.4);
   --hand:"Henriks Hand","Amatic SC","Bradley Hand",cursive; /* Amatic SC fills glyphs Henrik's hand lacks: quotes, dashes, é ü ö ä, ( ) & / @ */--sans:Montserrat,system-ui,sans-serif;--read:Newsreader,Georgia,serif}
@@ -28,16 +29,15 @@ button,select{font:inherit;color:inherit;cursor:pointer}
 a{color:inherit}
 :focus-visible{outline:2.5px solid var(--ink);outline-offset:4px}
 .hand{font-family:var(--hand);font-weight:400;text-transform:uppercase;letter-spacing:.14em}
-.wrap{width:min(1440px,100%);margin:0 auto;padding:0 max(4vw,16px,env(safe-area-inset-left))}
+.wrap{width:min(1840px,100%);margin:0 auto;padding:0 max(4vw,16px,env(safe-area-inset-left))}
 
 /* header: brand (turtle + wordmark, subtitle aligned under the wordmark) left; contact + menu right,
    every right-hand item 44px tall and centred on the wordmark line */
 header{padding:clamp(18px,2.6vw,40px) 0 clamp(8px,1.4vw,20px)}
 .hd{--mark:clamp(56px,5vw,84px);--g:clamp(10px,1vw,16px);--sep:clamp(14px,1.8vw,28px);
-  display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"brand nav" "sub .";column-gap:clamp(20px,3vw,48px);row-gap:6px;align-items:center}
+  display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"brand nav";column-gap:clamp(20px,3vw,48px);align-items:center}
 .logo{grid-area:brand;justify-self:start;display:flex;align-items:center;gap:var(--g);text-decoration:none;font-family:var(--hand);font-size:clamp(28px,2.8vw,46px);line-height:1;white-space:nowrap}
 .logo svg{width:var(--mark);height:auto;flex:none}
-.tag{grid-area:sub;margin:0 0 0 calc(var(--mark) + var(--g));font-size:clamp(13px,1.05vw,17px);line-height:1.45;letter-spacing:.14em;text-wrap:balance}
 .nav{grid-area:nav;display:flex;align-items:center}
 .reach,.menu{display:flex;align-items:center}
 .reach{gap:clamp(8px,1vw,14px)}
@@ -55,11 +55,15 @@ header{padding:clamp(18px,2.6vw,40px) 0 clamp(8px,1.4vw,20px)}
 .lang svg{position:absolute;right:2px;width:15px;height:15px;pointer-events:none}
 
 /* carousel */
-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(8px,2vw,32px)}
-.car{position:relative;--iw:clamp(230px,min(32vw,calc((100vh - 320px) * .7055)),410px)}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(4px,1.2vw,20px)}
+/* poster width: three across the content width, and no taller than the height left after header,
+   title and footer — so the page never scrolls */
+.car{position:relative;--iw:clamp(200px,min(calc((min(92vw,1840px - 8vw) - 64px) / 3),calc((100vh - 300px) * .7055)),600px)}
+/* tall tablets: bigger posters, two visible, swipe for the rest */
+@media(max-width:1100px) and (orientation:portrait){.car{--iw:clamp(200px,min(60vw,calc((100vh - 300px) * .7055)),600px)}}
 .track{display:flex;gap:clamp(16px,2.2vw,32px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:14px max(4vw,16px) 8px;scroll-padding-inline:max(4vw,16px)}
 .track::-webkit-scrollbar{display:none}
-@media(min-width:1440px){.track{padding-inline:calc((100vw - 1440px)/2 + 4vw);scroll-padding-inline:calc((100vw - 1440px)/2 + 4vw)}}
+@media(min-width:1840px){.track{padding-inline:calc((100vw - 1840px)/2 + 4vw);scroll-padding-inline:calc((100vw - 1840px)/2 + 4vw)}}
 .track.fits{justify-content:center}
 /* 3+ posters that fit: spread them so the row's outer edges line up with the header's */
 .track.fits.spread{justify-content:space-between}
@@ -81,10 +85,12 @@ main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-bl
 .dots button::before{content:"";width:9px;height:9px;border-radius:50%;background:rgba(29,58,42,.25);transition:background .15s}
 .dots button[aria-current="true"]::before{background:var(--ink)}
 
-/* footer: a small turtle to end the page, and the editor link */
-footer{padding:clamp(20px,3vw,40px) 0 calc(14px + env(safe-area-inset-bottom));text-align:center}
-footer .tl{display:block;width:64px;height:auto;margin:0 auto}
-.login-link{display:inline-block;margin:6px auto 0;text-decoration:none;font-size:13px;color:var(--soft);padding:8px}
+/* footer: tagline left, editor link right, on the same edges as the header */
+footer{padding:clamp(8px,1vw,16px) 0 calc(clamp(10px,1.4vw,22px) + env(safe-area-inset-bottom))}
+.ft{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"tag login";align-items:center;column-gap:24px}
+.tag{grid-area:tag;margin:0;font-size:clamp(13px,1vw,16px);line-height:1.5;letter-spacing:.14em;text-wrap:balance}
+.ft .reach{grid-area:reach;display:none}
+.login-link{grid-area:login;text-decoration:none;font-size:13px;color:var(--soft);padding:8px 0 8px 8px}
 .login-link:hover{color:var(--ink);text-decoration:underline}
 
 /* detail sheet (film + bio) — quick fade, no 3D */
@@ -127,25 +133,25 @@ footer .tl{display:block;width:64px;height:auto;margin:0 auto}
 @media(max-width:700px){
   header{padding:max(12px,env(safe-area-inset-top)) 0 0}
   /* two rows: brand | Bio · NO, then subtitle | mail · Instagram */
-  .hd{--mark:44px;--g:8px;--sep:12px;grid-template-areas:"brand menu" "sub reach";column-gap:12px;row-gap:0}
-  .nav{display:contents}
-  .menu{grid-area:menu}
+  /* phone: header is logo | Bio · NO; mail + Instagram move down beside the editor link */
+  .hd{--mark:44px;--g:8px;--sep:12px;grid-template-areas:"brand nav";column-gap:12px}
+  .hd .reach{display:none}
   .nav>.menu{border-left:0;margin-left:0;padding-left:0}
-  .reach{grid-area:reach;align-self:start;justify-self:end;gap:0;margin-right:-8px}
+  .ft{grid-template-areas:"tag tag" "reach login";row-gap:2px}
+  .ft .reach{display:flex;gap:0;margin-left:-10px}
+  .ft .mail{width:44px;justify-content:center}.ft .mail svg{display:block}
   .logo{font-size:24px}
   .bio-btn{font-size:20px;text-underline-offset:7px}
   .lang select{font-size:18px;padding-right:20px}.lang svg{width:13px}
-  .tag{align-self:start;font-size:11.5px;letter-spacing:.1em;line-height:1.5;padding-top:2px}
+  .tag{font-size:11.5px;letter-spacing:.1em;border-top:1.5px solid var(--line);padding-top:10px}
   .ig svg{width:24px;height:24px}
-  main{justify-content:flex-start}
   /* poster sized so poster + title fit in the visible viewport, under the header */
-  .car{--iw:clamp(180px,min(74vw,calc((100svh - 300px) * .7055)),360px)}
+  .car{--iw:clamp(170px,min(74vw,calc((100svh - 274px) * .7055)),360px)}
   .track{scroll-padding-inline:0;padding-inline:calc((100% - var(--iw))/2);padding-top:10px}
   .item{scroll-snap-align:center}
   .item h2{margin-top:12px;font-size:18px}
   .dots{margin-top:6px}
   .arrow{display:none!important}
-  footer .tl{width:48px}
   .sheet{--pad:10px}
   .cols{grid-template-columns:minmax(0,1fr)}
   .meta{border-right:0;padding-right:0;border-bottom:1.5px solid var(--line);padding-bottom:16px}
@@ -164,11 +170,10 @@ footer .tl{display:block;width:64px;height:auto;margin:0 auto}
 <header>
   <div class="wrap hd">
     <a class="logo" href="./" aria-label="Langsom Film"><svg viewBox="0 0 120 64" aria-hidden="true"><use href="#tl"/></svg><span>Langsom Film</span></a>
-    <p class="tag hand" id="tagline"></p>
     <nav class="nav">
       <div class="reach">
-        <a class="mail hand" id="mail" href="mailto:contact@langsomfilm.no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><span id="mailTxt">contact@langsomfilm.no</span></a>
-        <a class="ig" id="igLink" href="https://www.instagram.com/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+        <a class="mail hand js-mail" href="mailto:contact@langsomfilm.no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><span class="js-mailtxt">contact@langsomfilm.no</span></a>
+        <a class="ig js-ig" href="https://www.instagram.com/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
       </div>
       <div class="menu">
     <button class="bio-btn hand" id="bioBtn" aria-haspopup="dialog">Bio</button>
@@ -189,8 +194,14 @@ footer .tl{display:block;width:64px;height:auto;margin:0 auto}
 </main>
 
 <footer>
-  <svg class="tl" viewBox="0 0 120 64" aria-hidden="true"><use href="#tl"/></svg>
-  <a class="login-link" href="admin/" data-t="login">Logg inn</a>
+  <div class="wrap ft">
+    <p class="tag hand" id="tagline"></p>
+    <div class="reach">
+      <a class="mail js-mail" href="mailto:contact@langsomfilm.no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><span class="js-mailtxt">contact@langsomfilm.no</span></a>
+      <a class="ig js-ig" href="https://www.instagram.com/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+    <a class="login-link" href="admin/" data-t="login">Logg inn</a>
+  </div>
 </footer>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -248,8 +259,8 @@ const track=$('#track');
 function render(){
   const s=state.site;
   $('#tagline').textContent=L(s,'tagline');
-  if(s.email){$('#mailTxt').textContent=s.email;$('#mail').href='mailto:'+s.email}
-  $('#igLink').href=s.instagram||'https://www.instagram.com/';
+  if(s.email){document.querySelectorAll('.js-mailtxt').forEach(e=>e.textContent=s.email);document.querySelectorAll('.js-mail').forEach(a=>a.href='mailto:'+s.email)}
+  document.querySelectorAll('.js-ig').forEach(a=>a.href=s.instagram||'https://www.instagram.com/');
   $('#dots').innerHTML='';
   track.innerHTML=state.films.map((f,i)=>`
     <figure class="item" data-i="${i}">
