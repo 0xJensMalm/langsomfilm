@@ -95,7 +95,7 @@ footer{padding:clamp(28px,2.4vw,36px) 0 calc(clamp(10px,1.4vw,22px) + env(safe-a
 .ft::before{content:"";position:absolute;top:0;left:var(--pad);right:var(--pad);border-top:1.5px solid var(--line)}
 .tag{grid-area:tag;margin:0;text-align:center;font-size:clamp(13px,1vw,16px);line-height:1.5;letter-spacing:.14em;text-wrap:balance}
 .ft .reach{grid-area:reach;display:none}
-.login-link{grid-area:login;justify-self:end;text-decoration:none;font-size:13px;color:var(--soft);padding:8px 0 8px 8px}
+.login-link{grid-area:login;justify-self:end;background:none;border:0;text-decoration:none;font-size:13px;color:var(--soft);padding:8px 0 8px 8px}
 
 /* walking turtle: line-drawn, slow (~12px/s), fades in and out at the ends of the line */
 .lane{--tw:50px;--dur:110s;position:absolute;left:var(--pad);right:var(--pad);bottom:100%;height:calc(var(--tw) * .475);margin-bottom:-1px;overflow:hidden;pointer-events:none;
@@ -231,7 +231,7 @@ footer{padding:clamp(28px,2.4vw,36px) 0 calc(clamp(10px,1.4vw,22px) + env(safe-a
       <a class="mail js-mail" href="mailto:contact@langsomfilm.no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><span class="js-mailtxt">contact@langsomfilm.no</span></a>
       <a class="ig js-ig" href="https://www.instagram.com/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
     </div>
-    <a class="login-link" href="admin/" data-t="login">Logg inn</a>
+    <button class="login-link" id="loginLink" data-t="login">Logg inn</button>
   </div>
 </footer>
 
@@ -253,7 +253,8 @@ footer{padding:clamp(28px,2.4vw,36px) 0 calc(clamp(10px,1.4vw,22px) + env(safe-a
 
 <script>
 {
-/* Content lives in content/films.json and content/site.json, edited through /admin (Sveltia CMS). */
+/* Content lives in content/films.json and content/site.json. Logged-in editing lives in assets/edit.js
+   (loaded only on demand) and saves through https://api.langsomfilm.no (see server/). */
 const T={
   no:{films:'Filmer',prev:'Forrige',next:'Neste',close:'Lukk',login:'Logg inn',show:'Vis detaljer om',pick:'Velg film',
       year:'År',duration:'Varighet',lang:'Språk',regi:'Regi',manus:'Manus',cast:'Medvirkende',by:'En film av',
@@ -272,6 +273,8 @@ const L=(o,k)=>(lang==='en'&&o[k+'_en'])?o[k+'_en']:(o[k]||'');
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const paras=s=>String(s||'').split(/\n\s*\n/).map(p=>p.trim()).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join('');
+/* the editor can map freshly uploaded images to a URL that works before the site republishes */
+const src=p=>window.LF_SRC?window.LF_SRC(p):p;
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const X='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>';
 
@@ -295,9 +298,10 @@ function render(){
   $('#dots').innerHTML='';
   track.innerHTML=state.films.map((f,i)=>`
     <figure class="item" data-i="${i}">
-      <button class="poster" data-open="${i}" aria-label="${t('show')} ${esc(f.title)}"><img src="${esc(f.poster)}" alt="${t('poster')}: ${esc(f.title)}" loading="lazy"></button>
+      <button class="poster" data-open="${i}" aria-label="${t('show')} ${esc(f.title)}"><img src="${esc(src(f.poster))}" alt="${t('poster')}: ${esc(f.title)}" loading="lazy"></button>
       <h2 class="hand">${esc(f.title)}</h2>
-    </figure>`).join('')+(state.loaded&&!state.films.length?`<p class="empty">${t('empty')}</p>`:'');
+    </figure>`).join('')+(state.loaded&&!state.films.length&&!window.LF_EDITING?`<p class="empty">${t('empty')}</p>`:'');
+  dispatchEvent(new Event('lf:render'));
   fit();
 }
 /* centre the row when every poster fits on screen */
@@ -355,7 +359,7 @@ function filmBack(f){
       ${rows.length?`<div class="meta"><dl>${rows.map(r=>`<div><dt class="hand">${t(r[0])}</dt><dd>${esc(r[1]).replace(/\n/g,'<br>')}</dd></div>`).join('')}</dl></div>`:''}
       <div class="syn">${paras(L(f,'synopsis'))||`<p>${t('more')}</p>`}${f.sample?`<p class="note">${t('sample')}</p>`:''}</div>
     </div>
-    ${f.stills&&f.stills.length?`<div class="stills">${f.stills.map((s,k)=>`<img src="${esc(s)}" alt="${t('still')} ${k+1} ${t('from')} ${esc(f.title)}" loading="lazy">`).join('')}</div>`:''}
+    ${f.stills&&f.stills.length?`<div class="stills">${f.stills.map((s,k)=>`<img src="${esc(src(s))}" alt="${t('still')} ${k+1} ${t('from')} ${esc(f.title)}" loading="lazy">`).join('')}</div>`:''}
   </article>`;
 }
 function openFilm(i){
@@ -366,7 +370,7 @@ function bioBack(){
   const s=state.site;
   return `<div class="info bio">
     <section><h3 class="hand">Langsom Film</h3><h4 class="hand">${t('what')}</h4>${paras(L(s,'company'))}</section>
-    <section><h3 class="hand">${esc(s.name)}</h3><h4 class="hand">${t('about')}</h4><div class="me">${s.portrait?`<img src="${esc(s.portrait)}" alt="${t('portrait')} ${esc(s.name)}">`:'<div></div>'}<div>${paras(L(s,'about'))}</div></div></section>
+    <section><h3 class="hand">${esc(s.name)}</h3><h4 class="hand">${t('about')}</h4><div class="me">${s.portrait?`<img src="${esc(src(s.portrait))}" alt="${t('portrait')} ${esc(s.name)}">`:'<div></div>'}<div>${paras(L(s,'about'))}</div></div></section>
   </div>`;
 }
 $('#bioBtn').onclick=()=>openSheet({html:bioBack(),maxW:1000,label:'Bio',returnTo:$('#bioBtn')});
@@ -379,6 +383,16 @@ const get=u=>fetch(u,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(u+' '
 Promise.all([get('content/site.json'),get('content/films.json')])
   .then(([site,f])=>{state={site,films:(f.films||[]).filter(x=>x&&x.title&&x.poster),loaded:true};render()})
   .catch(err=>{console.error(err);track.innerHTML='<p class="empty">Kunne ikke laste innholdet. Prøv å laste siden på nytt.</p>'});
+
+/* ---------- editing (loaded only when someone logs in) ---------- */
+window.LF={get state(){return state},set(s){state={site:s.site||{},films:s.films||[],loaded:true};render()},render,openFilm,closeSheet:()=>open&&open.close(true)};
+let editLoad=null;
+const loadEditor=()=>editLoad||(editLoad=new Promise((ok,fail)=>{
+  const css=document.createElement('link');css.rel='stylesheet';css.href='assets/edit.css?v=1';document.head.append(css);
+  const js=document.createElement('script');js.src='assets/edit.js?v=1';js.onload=ok;js.onerror=fail;document.body.append(js);
+}));
+$('#loginLink').onclick=()=>loadEditor().then(()=>window.LF_EDIT.login());
+try{if(localStorage.getItem('lf-token'))loadEditor().then(()=>window.LF_EDIT.resume())}catch(e){}
 applyLang();
 }
 </script>

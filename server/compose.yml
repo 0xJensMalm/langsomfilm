@@ -1,0 +1,18 @@
+# Langsom Film content API. Joins Caddy's network (honsegaard_default) and publishes no ports;
+# Caddy reaches it as langsomfilm-api:3010 for https://api.langsomfilm.no
+services:
+  api:
+    build: .
+    image: langsomfilm-api
+    container_name: langsomfilm-api
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./data:/data
+      - ./keys:/keys:ro
+    mem_limit: 160m
+    networks: [caddy]
+networks:
+  caddy:
+    name: honsegaard_default
+    external: true
