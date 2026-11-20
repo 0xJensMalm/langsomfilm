@@ -30,18 +30,29 @@ a{color:inherit}
 .hand{font-family:var(--hand);font-weight:400;text-transform:uppercase;letter-spacing:.14em}
 .wrap{width:min(1440px,100%);margin:0 auto;padding:0 max(4vw,16px,env(safe-area-inset-left))}
 
-/* header */
+/* header: brand (turtle + wordmark, subtitle aligned under the wordmark) left; contact + menu right,
+   every right-hand item 44px tall and centred on the wordmark line */
 header{padding:clamp(18px,2.6vw,40px) 0 clamp(8px,1.4vw,20px)}
-.hd{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:clamp(16px,2.6vw,44px)}
-.hd>*+*{border-left:1.5px solid var(--line);padding-left:clamp(16px,2.6vw,44px)}
-.logo{display:flex;align-items:center;gap:clamp(10px,1vw,18px);text-decoration:none;font-family:var(--hand);font-size:clamp(28px,2.8vw,46px);line-height:1;white-space:nowrap}
-.logo svg{width:clamp(56px,5.4vw,92px);height:auto;flex:none}
-.tag{margin:0;text-align:center;font-size:clamp(14px,1.45vw,23px);line-height:1.45;text-wrap:balance}
-.bio-btn{background:none;border:0;padding:8px 4px;font-size:clamp(22px,2vw,30px);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:9px}
+.hd{--mark:clamp(56px,5vw,84px);--g:clamp(10px,1vw,16px);--sep:clamp(14px,1.8vw,28px);
+  display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"brand nav" "sub .";column-gap:clamp(20px,3vw,48px);row-gap:6px;align-items:center}
+.logo{grid-area:brand;justify-self:start;display:flex;align-items:center;gap:var(--g);text-decoration:none;font-family:var(--hand);font-size:clamp(28px,2.8vw,46px);line-height:1;white-space:nowrap}
+.logo svg{width:var(--mark);height:auto;flex:none}
+.tag{grid-area:sub;margin:0 0 0 calc(var(--mark) + var(--g));font-size:clamp(13px,1.05vw,17px);line-height:1.45;letter-spacing:.14em;text-wrap:balance}
+.nav{grid-area:nav;display:flex;align-items:center}
+.reach,.menu{display:flex;align-items:center}
+.reach{gap:clamp(8px,1vw,14px)}
+.nav>.menu,.menu>.lang{border-left:1.5px solid var(--line);margin-left:var(--sep);padding-left:var(--sep)}
+.reach a,.bio-btn,.lang{height:44px;display:flex;align-items:center}
+.mail{gap:10px;text-decoration:none;font-size:clamp(15px,1.25vw,19px)}
+.mail:hover span,.mail:focus-visible span{text-decoration:underline;text-underline-offset:6px}
+.mail svg{width:24px;height:24px;flex:none;display:none}
+.ig{justify-content:center;width:44px}
+.ig svg{width:28px;height:28px}
+.bio-btn{background:none;border:0;padding:0 4px;font-size:clamp(20px,1.7vw,26px);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:9px}
 .bio-btn:hover{text-decoration-thickness:3px}
-.lang{position:relative;display:flex;align-items:center}
-.lang select{appearance:none;-webkit-appearance:none;background:none;border:0;border-radius:4px;padding:8px 26px 8px 4px;font-family:var(--hand);font-size:clamp(20px,1.8vw,27px);letter-spacing:.14em}
-.lang svg{position:absolute;right:2px;width:16px;height:16px;pointer-events:none}
+.lang{position:relative}
+.lang select{appearance:none;-webkit-appearance:none;background:none;border:0;border-radius:4px;height:44px;padding:0 24px 0 4px;font-family:var(--hand);font-size:clamp(20px,1.7vw,26px);letter-spacing:.14em}
+.lang svg{position:absolute;right:2px;width:15px;height:15px;pointer-events:none}
 
 /* carousel */
 main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(8px,2vw,32px)}
@@ -50,6 +61,8 @@ main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-bl
 .track::-webkit-scrollbar{display:none}
 @media(min-width:1440px){.track{padding-inline:calc((100vw - 1440px)/2 + 4vw);scroll-padding-inline:calc((100vw - 1440px)/2 + 4vw)}}
 .track.fits{justify-content:center}
+/* 3+ posters that fit: spread them so the row's outer edges line up with the header's */
+.track.fits.spread{justify-content:space-between}
 .item{flex:0 0 var(--iw);scroll-snap-align:start;margin:0;display:flex;flex-direction:column;align-items:center}
 .poster{display:block;width:100%;aspect-ratio:436/618;padding:0;border:0;background:#d4d9cd;border-radius:2px;overflow:hidden;box-shadow:0 14px 30px -18px rgba(20,40,28,.55);transition:transform .2s ease,box-shadow .2s ease}
 .poster img{width:100%;height:100%;object-fit:cover;display:block}
@@ -68,15 +81,10 @@ main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-bl
 .dots button::before{content:"";width:9px;height:9px;border-radius:50%;background:rgba(29,58,42,.25);transition:background .15s}
 .dots button[aria-current="true"]::before{background:var(--ink)}
 
-/* footer */
-footer{padding:clamp(20px,3vw,40px) 0 calc(18px + env(safe-area-inset-bottom));text-align:center}
-.contact{display:inline-flex;align-items:center;gap:clamp(16px,2.4vw,36px);flex-wrap:wrap;justify-content:center}
-.contact>*+*{border-left:1.5px solid var(--line);padding-left:clamp(16px,2.4vw,36px)}
-.contact a{text-decoration:none;font-size:clamp(16px,1.6vw,22px)}.contact a:hover{text-decoration:underline;text-underline-offset:6px}
-.contact .tl{width:76px;height:auto;display:block}
-.contact .ig{display:grid;place-items:center;width:44px;height:44px}
-.contact .ig svg{width:34px;height:34px}
-.login-link{display:inline-block;margin:14px auto 0;text-decoration:none;background:none;border:0;font-size:13px;color:var(--soft);padding:8px}
+/* footer: a small turtle to end the page, and the editor link */
+footer{padding:clamp(20px,3vw,40px) 0 calc(14px + env(safe-area-inset-bottom));text-align:center}
+footer .tl{display:block;width:64px;height:auto;margin:0 auto}
+.login-link{display:inline-block;margin:6px auto 0;text-decoration:none;font-size:13px;color:var(--soft);padding:8px}
 .login-link:hover{color:var(--ink);text-decoration:underline}
 
 /* detail sheet (film + bio) — quick fade, no 3D */
@@ -111,18 +119,24 @@ footer{padding:clamp(20px,3vw,40px) 0 calc(18px + env(safe-area-inset-bottom));t
 .me{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:18px;align-items:start}
 .me img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;background:#d4d9cd}
 
-@media(max-width:960px){
-  .hd{grid-template-columns:minmax(0,1fr) auto auto;row-gap:10px}
-  .tag{grid-column:1/-1;grid-row:2;border-left:0!important;padding-left:0!important;border-top:1.5px solid var(--line);padding-top:12px}
+/* narrower screens: the e-mail address becomes an envelope icon */
+@media(max-width:1060px){
+  .mail span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  .mail{width:44px;justify-content:center}.mail svg{display:block}
 }
 @media(max-width:700px){
   header{padding:max(12px,env(safe-area-inset-top)) 0 0}
-  .hd{gap:8px 14px}
-  .hd>*+*{padding-left:14px}
-  .logo{font-size:25px;gap:8px}.logo svg{width:46px}
+  /* two rows: brand | Bio · NO, then subtitle | mail · Instagram */
+  .hd{--mark:44px;--g:8px;--sep:12px;grid-template-areas:"brand menu" "sub reach";column-gap:12px;row-gap:0}
+  .nav{display:contents}
+  .menu{grid-area:menu}
+  .nav>.menu{border-left:0;margin-left:0;padding-left:0}
+  .reach{grid-area:reach;align-self:start;justify-self:end;gap:0;margin-right:-8px}
+  .logo{font-size:24px}
   .bio-btn{font-size:20px;text-underline-offset:7px}
-  .lang select{font-size:18px;padding-right:22px}.lang svg{width:13px}
-  .tag{font-size:12.5px;letter-spacing:.1em;padding-top:10px}
+  .lang select{font-size:18px;padding-right:20px}.lang svg{width:13px}
+  .tag{align-self:start;font-size:11.5px;letter-spacing:.1em;line-height:1.5;padding-top:2px}
+  .ig svg{width:24px;height:24px}
   main{justify-content:flex-start}
   /* poster sized so poster + title fit in the visible viewport, under the header */
   .car{--iw:clamp(180px,min(74vw,calc((100svh - 300px) * .7055)),360px)}
@@ -131,9 +145,7 @@ footer{padding:clamp(20px,3vw,40px) 0 calc(18px + env(safe-area-inset-bottom));t
   .item h2{margin-top:12px;font-size:18px}
   .dots{margin-top:6px}
   .arrow{display:none!important}
-  .contact{gap:12px}.contact>*+*{padding-left:12px}
-  .contact a{font-size:15px;letter-spacing:.1em}
-  .contact .tl{width:48px}.contact .ig svg{width:28px}
+  footer .tl{width:48px}
   .sheet{--pad:10px}
   .cols{grid-template-columns:minmax(0,1fr)}
   .meta{border-right:0;padding-right:0;border-bottom:1.5px solid var(--line);padding-bottom:16px}
@@ -153,9 +165,17 @@ footer{padding:clamp(20px,3vw,40px) 0 calc(18px + env(safe-area-inset-bottom));t
   <div class="wrap hd">
     <a class="logo" href="./" aria-label="Langsom Film"><svg viewBox="0 0 120 64" aria-hidden="true"><use href="#tl"/></svg><span>Langsom Film</span></a>
     <p class="tag hand" id="tagline"></p>
+    <nav class="nav">
+      <div class="reach">
+        <a class="mail hand" id="mail" href="mailto:contact@langsomfilm.no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><span id="mailTxt">contact@langsomfilm.no</span></a>
+        <a class="ig" id="igLink" href="https://www.instagram.com/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+      <div class="menu">
     <button class="bio-btn hand" id="bioBtn" aria-haspopup="dialog">Bio</button>
     <div class="lang"><select id="langSel" aria-label="Språk / Language"><option value="no">NO</option><option value="en">EN</option></select>
       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6"/></svg></div>
+      </div>
+    </nav>
   </div>
 </header>
 
@@ -169,11 +189,7 @@ footer{padding:clamp(20px,3vw,40px) 0 calc(18px + env(safe-area-inset-bottom));t
 </main>
 
 <footer>
-  <div class="contact">
-    <a class="hand" id="mail" href="mailto:contact@langsomfilm.no">contact@langsomfilm.no</a>
-    <span aria-hidden="true"><svg class="tl" viewBox="0 0 120 64"><use href="#tl"/></svg></span>
-    <span><a class="ig" id="igLink" href="https://www.instagram.com/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a></span>
-  </div>
+  <svg class="tl" viewBox="0 0 120 64" aria-hidden="true"><use href="#tl"/></svg>
   <a class="login-link" href="admin/" data-t="login">Logg inn</a>
 </footer>
 
@@ -232,7 +248,7 @@ const track=$('#track');
 function render(){
   const s=state.site;
   $('#tagline').textContent=L(s,'tagline');
-  if(s.email){$('#mail').textContent=s.email;$('#mail').href='mailto:'+s.email}
+  if(s.email){$('#mailTxt').textContent=s.email;$('#mail').href='mailto:'+s.email}
   $('#igLink').href=s.instagram||'https://www.instagram.com/';
   $('#dots').innerHTML='';
   track.innerHTML=state.films.map((f,i)=>`
@@ -243,7 +259,7 @@ function render(){
   fit();
 }
 /* centre the row when every poster fits on screen */
-function fit(){track.classList.remove('fits');track.classList.toggle('fits',innerWidth>700&&track.scrollWidth<=track.clientWidth+2);arrows()}
+function fit(){track.classList.remove('fits');const f=innerWidth>700&&track.scrollWidth<=track.clientWidth+2;track.classList.toggle('fits',f);track.classList.toggle('spread',f&&track.querySelectorAll('.item').length>=3);arrows()}
 function arrows(){
   const overflow=track.scrollWidth>track.clientWidth+8;
   $('#prev').hidden=!overflow||track.scrollLeft<8;
