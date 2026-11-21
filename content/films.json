@@ -16,21 +16,6 @@
       "stills": []
     },
     {
-      "title": "Geir",
-      "director": "",
-      "year": "",
-      "duration": "",
-      "lang": "",
-      "lang_en": "",
-      "regi": "",
-      "manus": "",
-      "cast": "",
-      "synopsis": "",
-      "synopsis_en": "",
-      "poster": "assets/uploads/geir-plakat-34c400ff.webp",
-      "stills": []
-    },
-    {
       "title": "Bebudelsen",
       "director": "Anja Petkovic",
       "year": "",
@@ -43,6 +28,21 @@
       "synopsis": "",
       "synopsis_en": "",
       "poster": "assets/bebudelsen.jpg",
+      "stills": []
+    },
+    {
+      "title": "Geir",
+      "director": "",
+      "year": "",
+      "duration": "",
+      "lang": "",
+      "lang_en": "",
+      "regi": "",
+      "manus": "",
+      "cast": "",
+      "synopsis": "",
+      "synopsis_en": "",
+      "poster": "assets/uploads/geir-plakat-34c400ff.webp",
       "stills": []
     },
     {
