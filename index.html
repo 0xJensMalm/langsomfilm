@@ -191,7 +191,7 @@ footer{padding:clamp(28px,2.4vw,36px) 0 calc(clamp(10px,1.4vw,22px) + env(safe-a
     <nav class="nav">
       <div class="reach">
         <a class="mail hand js-mail" href="mailto:contact@langsomfilm.no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><span class="js-mailtxt">contact@langsomfilm.no</span></a>
-        <a class="ig js-ig" href="https://www.instagram.com/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+        <a class="ig js-ig" href="https://www.instagram.com/langsom.film/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
       </div>
       <div class="menu">
     <button class="bio-btn hand" id="bioBtn" aria-haspopup="dialog">Bio</button>
@@ -229,7 +229,7 @@ footer{padding:clamp(28px,2.4vw,36px) 0 calc(clamp(10px,1.4vw,22px) + env(safe-a
     <p class="tag hand" id="tagline"></p>
     <div class="reach">
       <a class="mail js-mail" href="mailto:contact@langsomfilm.no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><span class="js-mailtxt">contact@langsomfilm.no</span></a>
-      <a class="ig js-ig" href="https://www.instagram.com/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+      <a class="ig js-ig" href="https://www.instagram.com/langsom.film/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
     </div>
     <button class="login-link" id="loginLink" data-t="login">Logg inn</button>
   </div>
@@ -294,7 +294,7 @@ function render(){
   const s=state.site;
   $('#tagline').textContent=L(s,'tagline');
   if(s.email){document.querySelectorAll('.js-mailtxt').forEach(e=>e.textContent=s.email);document.querySelectorAll('.js-mail').forEach(a=>a.href='mailto:'+s.email)}
-  document.querySelectorAll('.js-ig').forEach(a=>a.href=s.instagram||'https://www.instagram.com/');
+  document.querySelectorAll('.js-ig').forEach(a=>a.href=s.instagram||'https://www.instagram.com/langsom.film/');
   $('#dots').innerHTML='';
   track.innerHTML=state.films.map((f,i)=>`
     <figure class="item" data-i="${i}">
