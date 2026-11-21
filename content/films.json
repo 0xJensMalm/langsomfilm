@@ -31,21 +31,6 @@
       "stills": []
     },
     {
-      "title": "Yrkesfag",
-      "director": "Gabriel Bagnaschi",
-      "year": "2025",
-      "duration": "8 min",
-      "lang": "norsk",
-      "lang_en": "",
-      "regi": "Gabriel Bagnaschi",
-      "manus": "Gabriel Bagnaschi",
-      "cast": "",
-      "synopsis": "",
-      "synopsis_en": "",
-      "poster": "assets/uploads/yrkesfag-plakat-87a86f45.webp",
-      "stills": []
-    },
-    {
       "title": "Geir",
       "director": "",
       "year": "",
@@ -58,6 +43,21 @@
       "synopsis": "",
       "synopsis_en": "",
       "poster": "assets/uploads/geir-plakat-34c400ff.webp",
+      "stills": []
+    },
+    {
+      "title": "Yrkesfag",
+      "director": "Gabriel Bagnaschi",
+      "year": "2025",
+      "duration": "8 min",
+      "lang": "norsk",
+      "lang_en": "",
+      "regi": "Gabriel Bagnaschi",
+      "manus": "Gabriel Bagnaschi",
+      "cast": "",
+      "synopsis": "",
+      "synopsis_en": "",
+      "poster": "assets/uploads/yrkesfag-plakat-87a86f45.webp",
       "stills": []
     },
     {
