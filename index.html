@@ -47,7 +47,7 @@ header{padding:clamp(18px,2.6vw,40px) 0 clamp(8px,1.4vw,20px)}
 .reach{gap:clamp(8px,1vw,14px)}
 .nav>.menu,.menu>.lang{border-left:1.5px solid var(--line);margin-left:var(--sep);padding-left:var(--sep)}
 .reach a,.bio-btn,.lang{height:44px;display:flex;align-items:center}
-.mail{gap:10px;text-decoration:none;font-size:clamp(15px,1.25vw,19px)}
+.mail{gap:10px;text-decoration:none;font-size:clamp(20px,1.7vw,26px)}
 .mail:hover span,.mail:focus-visible span{text-decoration:underline;text-underline-offset:6px}
 .mail svg{width:24px;height:24px;flex:none;display:none}
 .ig{justify-content:center;width:44px}
@@ -142,7 +142,7 @@ footer{padding:clamp(28px,2.4vw,36px) 0 calc(clamp(10px,1.4vw,22px) + env(safe-a
 .me img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;background:#d4d9cd}
 
 /* narrower screens: the e-mail address becomes an envelope icon */
-@media(max-width:1060px){
+@media(max-width:700px){
   .mail span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
   .mail{width:44px;justify-content:center}.mail svg{display:block}
 }
@@ -190,7 +190,7 @@ footer{padding:clamp(28px,2.4vw,36px) 0 calc(clamp(10px,1.4vw,22px) + env(safe-a
     <a class="logo" href="./" aria-label="Langsom Film"><svg viewBox="0 0 120 64" aria-hidden="true"><use href="#tl"/></svg><span>Langsom Film</span></a>
     <nav class="nav">
       <div class="reach">
-        <a class="mail hand js-mail" href="mailto:contact@langsomfilm.no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><span class="js-mailtxt">contact@langsomfilm.no</span></a>
+        <a class="mail hand js-mail" href="mailto:adrianaxel.dp@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><span data-t="contact">Kontakt</span></a>
         <a class="ig js-ig" href="https://www.instagram.com/langsom.film/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
       </div>
       <div class="menu">
@@ -228,7 +228,7 @@ footer{padding:clamp(28px,2.4vw,36px) 0 calc(clamp(10px,1.4vw,22px) + env(safe-a
     </div></div>
     <p class="tag hand" id="tagline"></p>
     <div class="reach">
-      <a class="mail js-mail" href="mailto:contact@langsomfilm.no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><span class="js-mailtxt">contact@langsomfilm.no</span></a>
+      <a class="mail js-mail" href="mailto:adrianaxel.dp@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><span data-t="contact">Kontakt</span></a>
       <a class="ig js-ig" href="https://www.instagram.com/langsom.film/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
     </div>
     <button class="login-link" id="loginLink" data-t="login">Logg inn</button>
@@ -256,11 +256,11 @@ footer{padding:clamp(28px,2.4vw,36px) 0 calc(clamp(10px,1.4vw,22px) + env(safe-a
 /* Content lives in content/films.json and content/site.json. Logged-in editing lives in assets/edit.js
    (loaded only on demand) and saves through https://api.langsomfilm.no (see server/). */
 const T={
-  no:{films:'Filmer',prev:'Forrige',next:'Neste',close:'Lukk',login:'Logg inn',show:'Vis detaljer om',pick:'Velg film',
+  no:{contact:'Kontakt',films:'Filmer',prev:'Forrige',next:'Neste',close:'Lukk',login:'Logg inn',show:'Vis detaljer om',pick:'Velg film',
       year:'År',duration:'Varighet',lang:'Språk',regi:'Regi',manus:'Manus',cast:'Medvirkende',by:'En film av',
       more:'Mer informasjon kommer.',sample:'Eksempelinnhold — fylles ut i redigeringsmodus.',what:'Hva vi gjør',about:'Om meg',
       poster:'Plakat',still:'Stillbilde',from:'fra',portrait:'Portrett av',empty:'Ingen filmer ennå.'},
-  en:{films:'Films',prev:'Previous',next:'Next',close:'Close',login:'Log in',show:'Show details for',pick:'Choose film',
+  en:{contact:'Contact',films:'Films',prev:'Previous',next:'Next',close:'Close',login:'Log in',show:'Show details for',pick:'Choose film',
       year:'Year',duration:'Runtime',lang:'Language',regi:'Director',manus:'Screenplay',cast:'Cast',by:'A film by',
       more:'More information coming soon.',sample:'Sample content — to be filled in.',what:'What we do',about:'About me',
       poster:'Poster',still:'Still',from:'from',portrait:'Portrait of',empty:'No films yet.'}
@@ -293,7 +293,7 @@ const track=$('#track');
 function render(){
   const s=state.site;
   $('#tagline').textContent=L(s,'tagline');
-  if(s.email){document.querySelectorAll('.js-mailtxt').forEach(e=>e.textContent=s.email);document.querySelectorAll('.js-mail').forEach(a=>a.href='mailto:'+s.email)}
+  if(s.email)document.querySelectorAll('.js-mail').forEach(a=>a.href='mailto:'+s.email)
   document.querySelectorAll('.js-ig').forEach(a=>a.href=s.instagram||'https://www.instagram.com/langsom.film/');
   $('#dots').innerHTML='';
   track.innerHTML=state.films.map((f,i)=>`
